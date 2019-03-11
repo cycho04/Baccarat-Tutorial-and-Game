@@ -7,4 +7,4 @@ const boardSchema = new Schema({
 });
 
 //create new collection called board
-mongoose.model('board', boardSchema);
+module.exports = mongoose.model('board', boardSchema);

@@ -1,33 +1,30 @@
 const express = require('express');
+const app = express();
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const keys = require('./config/keys'); //secured keys, .gitignore
-require('./models/BacBoard');
-const Board = mongoose.model('board');
+
+
+//middlewares
+app.use(bodyParser.json());
+app.use(cors());
+
+const PORT = process.env.PORT || 5000;
+
+
+//ROUTES (uses CONTROLLERS AND MODELS)
+require('./routes/board.routes')(app);
 
 
 //connects mongoose to Mongo using ./config/keys.mongoURI
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
-
-const app = express();
-
-app.get('/', (req, res) => {
-    res.send({hello: 'yes'});
-
-    //create only 1 record
-    Board.findOne({ history: [1,2] })
-        .then((existingHistory) => {
-            if(existingHistory){
-                //If the history was already created...
-            }
-            else{
-                //History has not yet been created. create one
-                new Board({history: [1,2]}).save();
-            }
-        })
-
-    
-});
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true })
+    .then(() => {
+        console.log("connected to MongoDB");
+    })
+    .catch((err) => {
+        console.log('ERROR', err);
+    })
 
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
