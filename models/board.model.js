@@ -3,7 +3,8 @@ const { Schema } = mongoose;
 
 //mongoose needs to know format ahead of time
 const boardSchema = new Schema({
-    history: Array
+    history: Array,
+    deck: Array
 });
 
 //create new collection called board

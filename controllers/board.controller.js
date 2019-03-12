@@ -1,9 +1,12 @@
 const Board = require('../models/board.model');
 
 
-//CREATE
+//CREATE uses .post method(where axios is used) info to make a create call
 exports.create = (req, res) => {
-    const newBoard = new Board({history: req.body.history})//uses model to create a new Schema
+    const newBoard = new Board({
+        history: req.body.history, 
+        deck: req.body.deck
+    })
     newBoard.save(); //saves it into the DB
 };
 
