@@ -6,3 +6,10 @@
 ### Video Walkthrough
 
 ### Technical Information
+- Boostrapped with `create-react-app` 
+
+- `NodeJS` and `ExpressJS` for backend
+
+- `MongoDB` for database.
+
+- HTTP requests made with `axios`
