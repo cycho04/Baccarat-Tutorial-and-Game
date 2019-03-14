@@ -3,11 +3,18 @@ const Board = require('../models/board.model');
 
 //CREATE uses .post method(where axios is used) info to make a create call
 exports.create = (req, res) => {
+
     const newBoard = new Board({
+        //no need to add banker,player,history. blank by default
+        current: true,
         history: req.body.history, 
-        deck: req.body.deck
+        deck: req.body.deck,
+        money: req.body.money
     })
-    newBoard.save(); //saves it into the DB
+    newBoard.save((err, result) => {
+        //sends data (seen in mlab) to front-end/ accessed by .then(res)
+        res.send(result);
+    }); //saves it into the DB
 };
 
 //READ. show all
@@ -39,7 +46,14 @@ exports.findOne = (req, res) => {
 //UPDATE
 exports.update = (req, res) => {
     //_id from MongoDB default id. replaces history with new history from axios call(which is req.body)
-    Board.findOneAndUpdate({_id: req.params.boardId}, { history: req.body.history }, (err, x) => {
+    Board.findOneAndUpdate({_id: req.params.boardId}, { 
+        banker: req.body.banker,
+        player: req.body.player,
+        history: req.body.history,
+        deck: req.body.deck,
+        money: req.body.money
+
+    }, (err, x) => {
         if(err){
             console.log(err.message)
         }

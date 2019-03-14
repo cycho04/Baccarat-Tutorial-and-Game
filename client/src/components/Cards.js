@@ -13,8 +13,6 @@ const baccaratCount = (num1, num2) => {
 const Cards = props => {
     return(
         <div>
-            {/* testing out baccarat count.Works */}
-            {baccaratCount(0, 9)}
             <div>
                 {/* testing out redux store. properly display the card values */}
                 {props.currentHand.map((card) => {

@@ -12,3 +12,10 @@ export const getCurrentHand = (arr) => {
         payload: arr
     }
 }
+
+export const storeDeckId = (id) => {
+    return {
+        type: 'DECK_ID',
+        payload: id
+    }
+}

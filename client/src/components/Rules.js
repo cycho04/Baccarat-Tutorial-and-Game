@@ -7,12 +7,27 @@ const Rules = () => {
             <h4 className='ui horizontal divider header'>
                 Intro
             </h4>
-            <div>this is the intro</div>
+            <div>
+                <p>
+                    Baccarat, also known as punto banco, is one of the oldest and most popular games in casinos all over the world. 
+                    It is especially popular among high-rollers and Asian gamblers. In Macau, baccarat is extremely dominant. 
+                    Although the game seems serious and elegant, it is really as simple as betting on the flip of a coin.
+                </p>
+            </div>
 
             <h4 className='ui horizontal divider header'>
                 Basics
             </h4>
             <div>
+                <p>
+                    Baccarat is a card game that is dealt from a shoe that holds 6 or 8 decks of cards. 
+                    Two hands are dealt by the house dealer, the "banker" hand and the "player" hand. 
+                    Before the hands are dealt, bets may be placed on the banker hand, on the player hand, or on a tie.
+                    The value of a hand is determined by adding the values of its individual cards. 
+                    Tens and face cards are counted as zero, while all other cards are counted by the number of "pips" on the card face. 
+                    Only the last digit of the total is used, so all baccarat hands have values in the range 0 to 9 inclusive. 
+                    The hand with the higher value wins; if the hands have the same value, the result is a tie.
+                </p>
                 card delivery
                 definitions (naturals)
                 values

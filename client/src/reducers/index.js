@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import TestReducer from './TestReducer';
+import deckIdReducer from './deckIdReducer';
 import deckReducer from './deckReducer';
 import currentHandReducer from './currentHandReducer';
 
 export default combineReducers({
-    test: TestReducer,
+    deckId: deckIdReducer,
     deck: deckReducer,
     currentHand: currentHandReducer
 });

@@ -2,19 +2,24 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
+import { addDeck, getCurrentHand, storeDeckId } from '../actions';
 import Cards from './Cards';
 import GameButtons from './GameButtons';
 
 
 class Game extends React.Component {
 
-    //fetches board when Game loads.
+    //fetches previous game/board when Game loads.
     componentDidMount(){
-        //initially fetches all board data.
+        //initially fetches all board data and filters the previously played one.
         //READ
-        axios.get('http://localhost:5000/board')
+        axios.get(`http://localhost:5000/board`)
             .then((res) => {
-                console.log('GET REQUEST',res.data)
+                const unfinishedDeck = res.data.filter((game) => game.current === true)
+                //dispatch
+                this.props.storeDeckId(unfinishedDeck[0]._id);
+                this.props.addDeck(unfinishedDeck[0].deck); 
+                this.props.getCurrentHand([...unfinishedDeck[0].banker, ...unfinishedDeck[0].player]);
             })
     }
     render(){
@@ -33,4 +38,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Game);
+export default connect(mapStateToProps, { addDeck, getCurrentHand, storeDeckId })(Game);

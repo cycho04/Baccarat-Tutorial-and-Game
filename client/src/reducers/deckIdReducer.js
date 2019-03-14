@@ -1,6 +1,6 @@
-export default (state ='', action) => {
+export default (state ='a', action) => {
     switch(action.type){
-        case ('TEST'):
+        case ('DECK_ID'):
             return action.payload
         default:
             return state
