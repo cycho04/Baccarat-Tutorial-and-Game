@@ -5,6 +5,16 @@ import { connect } from 'react-redux';
 import { addDeck, getCurrentHand, storeDeckId } from '../actions';
 
 class GameButtons extends React.Component {
+
+    //returns the ones digit if num1 + num2 is over 10
+    baccaratCount = (num1, num2) => {
+        const total = num1 + num2;
+            if (total >= 10){
+                return total - 10;
+            }
+        return total;//else
+    } 
+
     //new game
     newShoe = () => {
         //create 8 deck shoe
@@ -46,7 +56,12 @@ class GameButtons extends React.Component {
         } 
         //dispatch
         this.props.addDeck(usedDeck); 
-        this.props.getCurrentHand(hand);
+        this.props.getCurrentHand(hand)
+            .then(() => {
+                const bankerTotal = this.baccaratCount(this.props.state.currentHand[0].value, this.props.state.currentHand[1].value);
+                const playerTotal = this.baccaratCount(this.props.state.currentHand[2].value, this.props.state.currentHand[3].value);
+                this.hitOrStay(bankerTotal, playerTotal);
+            })
 
         //UPDATES database
         axios.put(`http://localhost:5000/board/${this.props.state.deckId}`, {
@@ -56,9 +71,31 @@ class GameButtons extends React.Component {
             deck: this.props.state.deck,
             money: 1000
         })
-        console.log(this.props.state)
     }
 
+    //Hit charts
+    hitOrStay = (banker, player) => {
+        //check naturals
+        if( banker >= 8 || player >= 8){
+            console.log("Natural")
+        }
+        //check for 6,7 for both
+        else if( banker >= 6 && player >= 6){
+            console.log('both 6+, no more hit')
+        }
+        else if(player <= 5){
+            console.log('hit player side')
+        }
+        //one hit to banker side.
+        else if(banker <= 5){
+            console.log('stay on player, hit banker side')
+        }
+        else {
+            console.log('error, hand not recognized');
+        }
+    }
+
+    //new bet. currently labeled clear hands
     handleClear = () => {
         axios.put(`http://localhost:5000/board/${this.props.state.deckId}`, {
             banker: [],

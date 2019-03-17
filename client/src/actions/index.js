@@ -6,11 +6,15 @@ export const addDeck = (arr) => {
     }
 }
 
-export const getCurrentHand = (arr) => {
-    return {
-        type: 'CURRENT_HAND',
-        payload: arr
-    }
+export const getCurrentHand = (arr) => dispatch => {
+    //action returns a promise, access the state after update using .then()
+    return new Promise((resolve, reject) => {
+        dispatch({
+            type: 'CURRENT_HAND',
+            payload: arr    
+        });
+        resolve()
+    })
 }
 
 export const storeDeckId = (id) => {

@@ -52,11 +52,10 @@ exports.update = (req, res) => {
         history: req.body.history,
         deck: req.body.deck,
         money: req.body.money
-
-    }, (err, x) => {
-        if(err){
-            console.log(err.message)
-        }
+    })
+    //To make sure that the request will not fail, you will need to send at least some response back after the request is complete
+    .then(() => {
+        res.status(200).send('successfully updated');
     })
 };
 
