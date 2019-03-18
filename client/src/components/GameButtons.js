@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import deck from '../modules/deck';
 import { connect } from 'react-redux';
-import { addDeck, getCurrentHand, storeDeckId } from '../actions';
+import { addDeck, getCurrentHand, storeDeckId, updateBanker, updatePlayer } from '../actions';
 
 class GameButtons extends React.Component {
 
@@ -85,10 +85,46 @@ class GameButtons extends React.Component {
         }
         else if(player <= 5){
             console.log('hit player side')
+            let usedDeck = this.props.state.deck;// dummy deck to modify and dispatch to redux
+            let randomNumber = Math.floor(Math.random() * usedDeck.length); //stores the randomly picked number
+            let playerHitCard = usedDeck[randomNumber]; //stores the selected card
+            console.log(playerHitCard.value)
+            if(banker < 3){
+                console.log('<= 2 always hit banker');
+            }
+            else if( banker === 3 && playerHitCard.value !== 8){
+                console.log('38 special hit');
+            }
+            else if (banker === 4 && playerHitCard.value > 1 && playerHitCard.value < 8 ){
+                console.log('banker is 4 and player hit card is 4-7');
+            }
+            else if(banker === 5 && playerHitCard.value > 3 && playerHitCard.value < 8 ) {
+                console.log('banker is 5 and player hit card is 4-7');
+            }
+            else if(banker === 6 && playerHitCard.value === 6 || playerHitCard.value === 7){
+                console.log('banker is 6 and hit card is 6 or 7');
+            }
+            else {
+                console.log('banker doesnt hit');
+            }
         }
         //one hit to banker side.
         else if(banker <= 5){
             console.log('stay on player, hit banker side')
+            let usedDeck = this.props.state.deck;// dummy deck to modify and dispatch to redux
+            let randomNumber = Math.floor(Math.random() * usedDeck.length); //stores the randomly picked number
+            let bankerHitCard = usedDeck[randomNumber]; //stores the selected card
+            usedDeck = usedDeck.filter((ele, ii) => ii !== randomNumber)
+            this.props.addDeck(usedDeck); 
+            this.props.updateBanker(bankerHitCard);
+            //updates database. need to find more effective way. only needs to update banker, but currently cant find solution.
+            axios.put(`http://localhost:5000/board/${this.props.state.deckId}`, {
+                banker: this.props.state.banker, 
+                player: this.props.state.player,
+                history: [],
+                deck: this.props.state.deck,
+                money: 1000
+            });
         }
         else {
             console.log('error, hand not recognized');
@@ -125,4 +161,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps, { addDeck, getCurrentHand, storeDeckId })(GameButtons);
+export default connect(mapStateToProps, { addDeck, getCurrentHand, storeDeckId, updateBanker, updatePlayer })(GameButtons);

@@ -25,7 +25,7 @@ class Game extends React.Component {
     render(){
         return (
             <div>
-                <Cards currentHand={this.props.state.currentHand}/>
+                <Cards banker={this.props.state.banker} player={this.props.state.player}/>
                 <GameButtons />
             </div>
         );    

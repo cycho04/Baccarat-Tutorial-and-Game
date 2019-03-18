@@ -13,8 +13,30 @@ export const getCurrentHand = (arr) => dispatch => {
             type: 'CURRENT_HAND',
             payload: arr    
         });
+        dispatch({
+            type: 'BANKER',
+            payload: [arr[0], arr[1]]
+        });
+        dispatch({
+            type: 'PLAYER',
+            payload: [arr[2], arr[3]]
+        });
         resolve()
     })
+}
+
+export const updateBanker = (card) => {
+    return{
+        type: 'UPDATE_BANKER',
+        payload: card
+    }
+}
+
+export const updatePlayer = (card) => {
+    return{
+        type: 'UPDATE_PLAYER',
+        payload: card
+    }
 }
 
 export const storeDeckId = (id) => {

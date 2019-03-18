@@ -5,10 +5,17 @@ const Cards = props => {
     return(
         <div>
             <div>
-                {/* testing out redux store. properly display the card values */}
-                {props.currentHand.map((card) => {
+                {props.banker.map((card) => {
                     return(
-                        <div>{card.value}</div>    
+                        // ternary checks for new deck
+                        <div>{card ? card.value : 0}</div>    
+                    )
+                })}
+            </div>
+            <div>
+                {props.player.map((card) => {
+                    return(
+                        <div>{card ? card.value : 0}</div>    
                     )
                 })}
             </div>
