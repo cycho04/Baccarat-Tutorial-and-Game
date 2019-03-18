@@ -2,8 +2,8 @@ import React from 'react';
 
 const Rules = () => {
     return(
-        <div>
-            <h1>How to Play</h1>
+        <div className='ui container'>
+            <h1>How to Play <i className='ui question circle outline icon'/></h1>
             <h4 className='ui horizontal divider header'>
                 Intro
             </h4>
@@ -40,21 +40,31 @@ const Rules = () => {
 
             {/* Steps */}
             <div className='ui ordered steps'>
+                
+                    <div className='step'>
+                        <div className='content'>
+                            <div className='title'>Check For Naturals</div>
+                            <div className='description'>Is either side an 8 or 9?</div>
+                        </div>
+                    </div>
+                
+                
+                
+                    <div className='active step'>
+                        <div className='content'>
+                            <div className='title'>Check Player's side</div>
+                            <div className='description'>Is the value under or over 5?</div>
+                        </div>
+                    </div>
+              
+                
                 <div className='step'>
                     <div className='content'>
-                        <div className='title'>Check For Naturals</div>
-                        <div className='description'>Is either side an 8 or 9?</div>
-                    </div>
-                </div>
-                <div className='active step'>
-                    <div className='content'>
-                        <div className='title'>Check Player's side</div>
+                        <div className='title'>Check Banker's side</div>
                         <div className='description'>Is the value under or over 5?</div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     );
 };
