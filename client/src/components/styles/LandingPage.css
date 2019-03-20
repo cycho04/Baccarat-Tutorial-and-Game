@@ -8,3 +8,10 @@
 .title {
     text-align: center;
 }
+
+.box {
+    background-color: black;
+    padding: 1.5em;
+    color: white;
+    border-radius: 25px;
+}

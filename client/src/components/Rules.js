@@ -1,6 +1,11 @@
 import React from 'react';
 
+
 const Rules = () => {
+    document.body.style.backgroundImage='url("https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80")';
+    document.body.style.backgroundRepeat='no-repeat';
+    document.body.style.backgroundPosition='center';
+    document.body.style.backgroundSize='cover';
     return(
         <div className='ui container'>
             <h1>How to Play <i className='ui question circle outline icon'/></h1>

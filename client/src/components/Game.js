@@ -11,6 +11,7 @@ class Game extends React.Component {
 
     //fetches previous game/board when Game loads.
     componentDidMount(){
+        document.body.style.backgroundImage = 'radial-gradient(#52c234, #061700)';
         //initially fetches all board data and filters the previously played one.
         //READ
         axios.get(`http://localhost:5000/board`)

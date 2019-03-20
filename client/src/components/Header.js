@@ -5,7 +5,7 @@ const Header = () => {
     return(
         <div className='ui secondary menu'>
             <a className='item'>
-                <Link to='/'><i className='fighter jet icon'/></Link>
+                <Link to='/'><i className='huge black money bill alternative icon'/></Link>
             </a>
             <div className='right menu'>
                 <a className='item'>

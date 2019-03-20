@@ -87,26 +87,54 @@ class GameButtons extends React.Component {
             console.log('hit player side')
             let usedDeck = this.props.state.deck;// dummy deck to modify and dispatch to redux
             let randomNumber = Math.floor(Math.random() * usedDeck.length); //stores the randomly picked number
+            let randomNumberBanker = 0;
+            let bankerHitCard = {};
             let playerHitCard = usedDeck[randomNumber]; //stores the selected card
-            console.log(playerHitCard.value)
+            usedDeck = usedDeck.filter((ele, ii) => ii !== randomNumber)
+            
             if(banker < 3){
                 console.log('<= 2 always hit banker');
+                randomNumberBanker = Math.floor(Math.random() * usedDeck.length);
+                bankerHitCard = usedDeck[randomNumberBanker];
+                usedDeck = usedDeck.filter((ele, ii) => ii !== randomNumberBanker);
             }
             else if( banker === 3 && playerHitCard.value !== 8){
                 console.log('38 special hit');
+                randomNumberBanker = Math.floor(Math.random() * usedDeck.length);
+                bankerHitCard = usedDeck[randomNumberBanker];
+                usedDeck = usedDeck.filter((ele, ii) => ii !== randomNumberBanker);
             }
-            else if (banker === 4 && playerHitCard.value > 1 && playerHitCard.value < 8 ){
+            else if (banker === 4 && (playerHitCard.value > 1 && playerHitCard.value < 8 )){
                 console.log('banker is 4 and player hit card is 4-7');
+                randomNumberBanker = Math.floor(Math.random() * usedDeck.length);
+                bankerHitCard = usedDeck[randomNumberBanker];
+                usedDeck = usedDeck.filter((ele, ii) => ii !== randomNumberBanker);
             }
-            else if(banker === 5 && playerHitCard.value > 3 && playerHitCard.value < 8 ) {
+            else if(banker === 5 && (playerHitCard.value > 3 && playerHitCard.value < 8 )) {
                 console.log('banker is 5 and player hit card is 4-7');
+                randomNumberBanker = Math.floor(Math.random() * usedDeck.length);
+                bankerHitCard = usedDeck[randomNumberBanker];
+                usedDeck = usedDeck.filter((ele, ii) => ii !== randomNumberBanker);
             }
-            else if(banker === 6 && playerHitCard.value === 6 || playerHitCard.value === 7){
+            else if(banker === 6 && (playerHitCard.value === 6 || playerHitCard.value === 7) ){
                 console.log('banker is 6 and hit card is 6 or 7');
+                randomNumberBanker = Math.floor(Math.random() * usedDeck.length);
+                bankerHitCard = usedDeck[randomNumberBanker];
+                usedDeck = usedDeck.filter((ele, ii) => ii !== randomNumberBanker);
             }
             else {
                 console.log('banker doesnt hit');
             }
+            this.props.addDeck(usedDeck); 
+            this.props.updatePlayer(playerHitCard);
+            this.props.updateBanker(bankerHitCard);
+            axios.put(`http://localhost:5000/board/${this.props.state.deckId}`, {
+                banker: this.props.state.banker, 
+                player: this.props.state.player,
+                history: [],
+                deck: this.props.state.deck,
+                money: 1000
+            });
         }
         //one hit to banker side.
         else if(banker <= 5){
