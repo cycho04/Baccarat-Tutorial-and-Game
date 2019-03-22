@@ -1,5 +1,6 @@
 import React from 'react';
 
+import HitChart from './HitChart';
 
 const Rules = () => {
     document.body.style.backgroundImage='url("https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80")';
@@ -8,7 +9,7 @@ const Rules = () => {
     document.body.style.backgroundSize='cover';
     return(
         <div className='ui container'>
-            <h1>How to Play <i className='ui question circle outline icon'/></h1>
+            <h1>How to Play <i className='ui lightbulb outline icon'/></h1>
             <h4 className='ui horizontal divider header'>
                 Intro
             </h4>
@@ -32,6 +33,8 @@ const Rules = () => {
                     Tens and face cards are counted as zero, while all other cards are counted by the number of "pips" on the card face. 
                     Only the last digit of the total is used, so all baccarat hands have values in the range 0 to 9 inclusive. 
                     The hand with the higher value wins; if the hands have the same value, the result is a tie.
+
+                    Each side is dealt a card.
                 </p>
                 card delivery
                 definitions (naturals)
@@ -43,33 +46,7 @@ const Rules = () => {
                 Step by step
             </h4>
 
-            {/* Steps */}
-            <div className='ui ordered steps'>
-                
-                    <div className='step'>
-                        <div className='content'>
-                            <div className='title'>Check For Naturals</div>
-                            <div className='description'>Is either side an 8 or 9?</div>
-                        </div>
-                    </div>
-                
-                
-                
-                    <div className='active step'>
-                        <div className='content'>
-                            <div className='title'>Check Player's side</div>
-                            <div className='description'>Is the value under or over 5?</div>
-                        </div>
-                    </div>
-              
-                
-                <div className='step'>
-                    <div className='content'>
-                        <div className='title'>Check Banker's side</div>
-                        <div className='description'>Is the value under or over 5?</div>
-                    </div>
-                </div>
-            </div>
+            <HitChart />
         </div>
     );
 };

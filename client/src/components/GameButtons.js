@@ -176,7 +176,7 @@ class GameButtons extends React.Component {
         return(
             <div>
                 <button className='ui blue button' onClick={this.newShoe}>New Shoe</button>
-                <button className='ui red button' onClick={this.handleClear}>Clear Cards</button> 
+                <button disabled className='ui red button' onClick={this.handleClear}>Clear Cards</button> 
                 <button className='ui green button' onClick={this.dealNextHand}>Deal Next Hand</button>
             </div>
         )    

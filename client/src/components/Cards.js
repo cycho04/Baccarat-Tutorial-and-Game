@@ -1,15 +1,32 @@
 import React from 'react';
 
+import './styles/Cards.css'
+
+
 
 const Cards = props => {
-    return(
-        <div>
+
+
+    const arrangeCards = () => {
+        const bankerOrder = props.banker.slice();
+        const playerOrder = props.player.slice();
+        if (bankerOrder.length === 2 && playerOrder.length === 2){
+
+        }
+        else if(bankerOrder.length === 3){
+
+        }
+        else if(playerOrder.length === 3){
+
+        }
+
+        return(
             <div>
                 {props.banker.map((card) => {
                     if(props.banker.length === 2){
                         return(
                             // ternary checks for new deck
-                            <span>{card ? card.value : 0}</span>    
+                            <span className='cards'>{card ? card.value : 0}</span>    
                             
                         )    
                     }
@@ -17,7 +34,7 @@ const Cards = props => {
 
                         return(
                             // ternary checks for new deck
-                            <span>{card ? card.value : 0}</span>    
+                            <span className='cards'>{card ? card.value : 0}</span>    
                         )  
                     }
                     
@@ -25,10 +42,17 @@ const Cards = props => {
                 - VS -
                 {props.player.map((card) => {
                     return(
-                        <span>{card ? card.value : 0}</span>    
+                        <span className='cards'>{card ? card.value : 0}</span>    
                     )
                 })}
             </div>
+        )
+    }
+
+
+    return(
+        <div>
+            {arrangeCards()}
         </div>
     )
 }

@@ -5,17 +5,17 @@ const Header = () => {
     return(
         <div className='ui secondary menu'>
             <a className='item'>
-                <Link to='/'><i className='huge black money bill alternative icon'/></Link>
+                <Link to='/'><i className='huge black paper plane outline icon'/></Link>
             </a>
             <div className='right menu'>
                 <a className='item'>
-                    <Link to='/rules'>Rules</Link>
+                    <Link to='/rules'><i className='huge black question circle outline icon'/></Link>
                 </a>
                 <a className='item'>
-                    <Link to='/game'>Game</Link>
+                    <Link to='/game'><i className='huge black gamepad icon'/></Link>
                 </a>
                 <a className='item'>
-                    <Link to='/scoreboard'>ScoreBoard</Link>
+                    <Link to='/scoreboard'><i className='huge black trophy icon'/></Link>
                 </a>    
             </div>
         </div>

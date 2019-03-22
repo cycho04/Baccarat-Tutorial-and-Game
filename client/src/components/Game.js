@@ -25,7 +25,7 @@ class Game extends React.Component {
     }
     render(){
         return (
-            <div>
+            <div className='ui container'>
                 <Cards banker={this.props.state.banker} player={this.props.state.player}/>
                 <GameButtons />
             </div>
