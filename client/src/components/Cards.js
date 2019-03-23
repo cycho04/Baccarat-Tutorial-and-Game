@@ -21,12 +21,12 @@ const Cards = props => {
         }
 
         return(
-            <div>
+            <div className=''>
                 {props.banker.map((card) => {
                     if(props.banker.length === 2){
                         return(
                             // ternary checks for new deck
-                            <span className='cards'>{card ? card.value : 0}</span>    
+                            <div className=''>{card ? card.value : 0}</div>    
                             
                         )    
                     }
@@ -34,15 +34,15 @@ const Cards = props => {
 
                         return(
                             // ternary checks for new deck
-                            <span className='cards'>{card ? card.value : 0}</span>    
+                            <div className=''>{card ? card.value : 0}</div>    
                         )  
                     }
                     
                 })}
-                - VS -
+                
                 {props.player.map((card) => {
                     return(
-                        <span className='cards'>{card ? card.value : 0}</span>    
+                        <div className=''>{card ? card.value : 0}</div>    
                     )
                 })}
             </div>

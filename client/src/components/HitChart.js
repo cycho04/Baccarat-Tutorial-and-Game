@@ -1,5 +1,11 @@
 import React from 'react';
 
+import FirstRule from './FirstRule';
+import SecondRule from './SecondRule';
+import ThirdRule from './ThirdRule';
+import FourthRule from './FourthRule';
+
+
 class HitChart extends React.Component {
 
     state={ rulenumber: 1 }
@@ -7,23 +13,28 @@ class HitChart extends React.Component {
     ruleExplained = () => {
         if(this.state.rulenumber === 1){
             return(
-                <div>first rule</div>
+                <FirstRule />
             )
         }
         else if(this.state.rulenumber === 2){
             return(
-                <div>second rule</div>
+                <SecondRule />
             )
         }
         else if(this.state.rulenumber === 3){
             return(
-                <div>third rule</div>
+                <ThirdRule />
             )
-        }    
+        }   
+        else if(this.state.rulenumber === 4){
+            return(
+                <FourthRule />
+            )
+        }   
         else{
             return(
                 <div>
-                    <div>No Rules Found</div>    
+                    <div>ERROR-No Rules Found</div>    
                 </div>
             )    
         }
@@ -37,6 +48,9 @@ class HitChart extends React.Component {
     }
     clickedStepThree = () => {
         this.setState({ rulenumber: 3})
+    }
+    clickedStepFour = () => {
+        this.setState({ rulenumber: 4})
     }
     
 
@@ -55,13 +69,20 @@ class HitChart extends React.Component {
                     <div onClick={this.clickedStepTwo} className='step'>
                         <div className='content'>
                             <div className='title'>Check Player's side</div>
-                            <div className='description'>Is the value under or over 5?</div>
+                            <div className='description'>Is it under or over 5 points?</div>
                         </div>
                     </div>
                 
                     <div onClick={this.clickedStepThree} className='step'>
                         <div className='content'>
                             <div className='title'>Check Banker's side</div>
+                            <div className='description'>Is the value under or over 5?</div>
+                        </div>
+                    </div>
+
+                    <div onClick={this.clickedStepFour} className='step'>
+                        <div className='content'>
+                            <div className='title'>Check Banker's side/Player's hit card</div>
                             <div className='description'>Is the value under or over 5?</div>
                         </div>
                     </div>
