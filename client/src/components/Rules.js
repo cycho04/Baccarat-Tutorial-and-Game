@@ -1,6 +1,7 @@
 import React from 'react';
 
 import HitChart from './HitChart';
+import card from '../images/cards/2C.jpg';
 
 const Rules = () => {
     document.body.style.backgroundImage='url("https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80")';
@@ -34,14 +35,14 @@ const Rules = () => {
                     Only the last digit of the total is used, so all baccarat hands have values in the range 0 to 9 inclusive. 
                     The hand with the higher value wins; if the hands have the same value, the result is a tie.
 
-                    Each side is dealt a card.
+                    Each side is dealt a card, starting from the player then to the banker, until each side has two cards.
                 </p>
-                card delivery
-                definitions (naturals)
-                values
+                <img src={card} alt="Banker's 2nd card"/>
+                <img src='' alt="Banker's 1st card"/>
+                <img src='' alt="Player's 2nd card"/>
+                <img src='' alt="Player's 1st card"/>
             </div>
             
-
             <h4 className='ui horizontal divider header'>
                 Step by step
             </h4>
