@@ -87,7 +87,7 @@ class HitChart extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className='ui segment'>
+                <div className='ui piled segment'>
                     {this.ruleExplained()}
                 </div>
 

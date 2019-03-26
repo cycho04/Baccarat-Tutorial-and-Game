@@ -22,34 +22,31 @@ const Cards = props => {
 
         return(
             <div className='cards'>
-                {props.banker.map((card) => {
-                    console.log(card)
+                {props.banker.map((card, i) => {
                     if(props.banker.length === 2){
                         return(
                             // ternary checks for new deck
-                            <div>
-                                <div className=''>{card ? card.value : 0}</div>
-                                <img src={card ? card.src : ''} alt='gh'/>    
-                            </div>
+                            <img src={card ? card.src : ''} alt={i}/>    
                         )    
                     }
                     else if (props.banker.length === 3){
-
                         return(
-                            // ternary checks for new deck
-                            <div>
-                                <div className=''>{card ? card.value : 0}</div> 
-                                <img src={card ? card.src : ''} alt='gh'/>       
-                            </div>
+                            <img src={card ? card.src : ''} alt={i}/>       
                         )  
                     }
-                    
                 })}
                 
-                {props.player.map((card) => {
-                    return(
-                        <div className=''>{card ? card.value : 0}</div>    
-                    )
+                {props.player.map((card, i) => {
+                    if(props.player.length === 2){
+                        return(
+                                <img src={card ? card.src : ''} alt={i}/>    
+                        )    
+                    }
+                    else if (props.player.length === 3){
+                        return(
+                                <img src={card ? card.src : ''} alt={i}/>       
+                        )  
+                    }
                 })}
             </div>
         )
@@ -58,7 +55,10 @@ const Cards = props => {
 
     return(
         <div>
-            {arrangeCards()}
+            <div className='ui segment'>
+                {arrangeCards()}    
+            </div>
+            
         </div>
     )
 }

@@ -1,0 +1,7 @@
+.parent {
+    white-space: nowrap;
+}
+
+.rules-card {
+    display: inline-block;
+}
