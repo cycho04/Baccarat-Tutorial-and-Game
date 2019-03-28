@@ -3,6 +3,11 @@ import React from 'react';
 const FourthRule = () => {
     return(
         <div>
+            <div>
+                Does the player's side equal 6 or higher?
+                <button  className='ui button'>Yes, Go to Step 3</button>
+                <button  className='ui button'>No, Go to Step 4</button>
+            </div>
             <p>
                 The most detailed rule. So far, there's no naturals, and both player and banker side equal to 5 or less. since player is under 5 it hit a card. Now......
                 The banker side will.......
