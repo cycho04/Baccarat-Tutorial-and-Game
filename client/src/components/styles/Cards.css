@@ -4,3 +4,17 @@
     height: 336px !important;
 
 }
+
+.parent {
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.single-card {
+    display: inline-block;
+}
+
+.third {
+    transform: rotate(90deg);
+
+}

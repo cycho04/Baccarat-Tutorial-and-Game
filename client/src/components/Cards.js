@@ -6,50 +6,59 @@ import './styles/Cards.css'
 
 const Cards = props => {
 
-
     const arrangeCards = () => {
-        const bankerOrder = props.banker.slice();
-        const playerOrder = props.player.slice();
-        if (bankerOrder.length === 2 && playerOrder.length === 2){
-
+        //initializing. data hasn't been fetched yet.
+        if(props.banker.length === 1){
+            return(
+                <div>Loading Data</div>
+            )
         }
-        else if(bankerOrder.length === 3){
-
+        //if both sides hit
+        else if(props.banker.length === 3 && props.player.length === 3){
+            return(
+                <div className='cards parent'>
+                    <img className='single-card third' src={props.banker[2].src} alt=''/> 
+                    <img className='single-card' src={props.banker[0].src} alt=''/>     
+                    <img className='single-card' src={props.banker[1].src} alt=''/>     
+                    vs
+                    <img className='single-card' src={props.player[0].src} alt=''/>    
+                    <img className='single-card' src={props.player[1].src} alt=''/>  
+                    <img className='single-card third' src={props.player[2].src} alt=''/>    
+                </div>
+            ) 
         }
-        else if(playerOrder.length === 3){
-
+        //only if banker hit
+        else if(props.banker.length === 3){
+            return(
+                <div className='cards parent'>
+                    <img className='single-card third' src={props.banker[2].src} alt=''/>
+                    <img className='single-card' src={props.banker[0].src} alt=''/>     
+                    <img className='single-card' src={props.banker[1].src} alt=''/>     
+                    vs    
+                    <img className='single-card' src={props.player[0].src} alt=''/>    
+                    <img className='single-card' src={props.player[1].src} alt=''/>    
+                </div>
+            ) 
         }
-
-        return(
-            <div className='cards'>
-                {props.banker.map((card, i) => {
-                    if(props.banker.length === 2){
+        //just 2 cards each side
+        else {
+            return(
+                <div className='cards parent'>
+                    {props.banker.map((card, i) => {
                         return(
                             // ternary checks for new deck
-                            <img src={card ? card.src : ''} alt={i}/>    
-                        )    
-                    }
-                    else if (props.banker.length === 3){
+                            <img className='single-card' src={card ? card.src : ''} alt={i}/>    
+                        )
+                    })}
+                    vs
+                    {props.player.map((card, i) => {
                         return(
-                            <img src={card ? card.src : ''} alt={i}/>       
-                        )  
-                    }
-                })}
-                
-                {props.player.map((card, i) => {
-                    if(props.player.length === 2){
-                        return(
-                                <img src={card ? card.src : ''} alt={i}/>    
-                        )    
-                    }
-                    else if (props.player.length === 3){
-                        return(
-                                <img src={card ? card.src : ''} alt={i}/>       
-                        )  
-                    }
-                })}
-            </div>
-        )
+                            <img className={props.player.length === 3 ? 'single-card third' : 'single-card'} src={card ? card.src : ''} alt={i}/>    
+                        )       
+                    })}
+                </div>
+            )    
+        }
     }
 
 

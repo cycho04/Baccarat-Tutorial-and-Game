@@ -171,6 +171,11 @@ class Rules extends React.Component {
                             <div>value of 3</div>
                             <img src='./images/3C.jpg' alt="three of clubs"/>    
                         </div>
+                        <div className='rules-card'>+</div>
+                        <div className='rules-card'>
+                            <div>value of 3</div>
+                            <img src='./images/3C.jpg' alt="three of clubs"/>    
+                        </div>
                         <div className='rules-card'> = 3</div>
                     </div>
                     
