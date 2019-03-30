@@ -5,7 +5,7 @@
 
 ### Video Walkthrough
 
-### Technical Information
+### Environment
 - Boostrapped with `create-react-app` 
 
 - `NodeJS` and `ExpressJS` for backend
