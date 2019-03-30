@@ -1,7 +1,41 @@
 .parent {
-    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 3.0em;
+}
+
+.hitchart-parent {
+    text-align: center;
 }
 
 .rules-card {
     display: inline-block;
+}
+
+.placeholder {
+    max-width: 176px !important;
+    max-height: 269px !important;
+    width: 75px !important;
+    height: 269px !important;
+}
+
+.placeholder-overflow {
+    max-width: 176px !important;
+    max-height: 269px !important;
+    width: 176px;
+    height: 269px;
+}
+
+.vertical-horizontal-parent {
+    position: relative;
+    overflow: visible;
+}
+
+.vertical-horizontal-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.hitchart-buttons {
+    margin-bottom: 2.0em;
 }

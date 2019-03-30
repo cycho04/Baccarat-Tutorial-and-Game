@@ -20,7 +20,9 @@ const Cards = props => {
                     <img className='single-card third' src={props.banker[2].src} alt=''/> 
                     <img className='single-card' src={props.banker[0].src} alt=''/>     
                     <img className='single-card' src={props.banker[1].src} alt=''/>     
-                    vs
+                    <div className='single-card vertical-horizontal-parent placeholder'>
+                        <h1 className='vertical-horizontal-child'>VS</h1>
+                    </div>
                     <img className='single-card' src={props.player[0].src} alt=''/>    
                     <img className='single-card' src={props.player[1].src} alt=''/>  
                     <img className='single-card third' src={props.player[2].src} alt=''/>    
@@ -34,7 +36,9 @@ const Cards = props => {
                     <img className='single-card third' src={props.banker[2].src} alt=''/>
                     <img className='single-card' src={props.banker[0].src} alt=''/>     
                     <img className='single-card' src={props.banker[1].src} alt=''/>     
-                    vs    
+                    <div className='single-card vertical-horizontal-parent placeholder'>
+                        <h1 className='vertical-horizontal-child'>VS</h1>
+                    </div>  
                     <img className='single-card' src={props.player[0].src} alt=''/>    
                     <img className='single-card' src={props.player[1].src} alt=''/>    
                 </div>
@@ -43,17 +47,19 @@ const Cards = props => {
         //just 2 cards each side
         else {
             return(
-                <div className='cards parent'>
+                <div className='cards'>
                     {props.banker.map((card, i) => {
                         return(
                             // ternary checks for new deck
-                            <img className='single-card' src={card ? card.src : ''} alt={i}/>    
+                            <img className='single-card' src={card ? card.src : './images/Gray.jpg'} alt={i}/>    
                         )
                     })}
-                    vs
+                    <div className='single-card vertical-horizontal-parent placeholder'>
+                        <h1 className='vertical-horizontal-child'>VS</h1>
+                    </div>
                     {props.player.map((card, i) => {
                         return(
-                            <img className={props.player.length === 3 ? 'single-card third' : 'single-card'} src={card ? card.src : ''} alt={i}/>    
+                            <img className={props.player.length === 3 ? 'single-card third' : 'single-card'} src={card ? card.src : './images/Gray.jpg'} alt={i}/>    
                         )       
                     })}
                 </div>
@@ -63,12 +69,12 @@ const Cards = props => {
 
 
     return(
-        <div>
-            <div className='ui segment'>
-                {arrangeCards()}    
-            </div>
-            
+        <div className='parent'>
+            <h1>Banker/Player Wins!</h1>
+            <h1>7/7</h1>
+            {arrangeCards() }
         </div>
+           
     )
 }
 

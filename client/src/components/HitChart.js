@@ -5,6 +5,8 @@ import SecondRule from './SecondRule';
 import ThirdRule from './ThirdRule';
 import FourthRule from './FourthRule';
 
+import './styles/Rules.css';
+
 
 class HitChart extends React.Component {
 
@@ -56,7 +58,7 @@ class HitChart extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className='parent'>
                 {/* Steps */}
                 <div className='ui ordered steps'>      
                     <div onClick={this.clickedStepOne} className='step'>

@@ -14,9 +14,6 @@ const Header = () => {
                 <a className='item'>
                     <Link to='/game'><i className='huge black gamepad icon'/></Link>
                 </a>
-                <a className='item'>
-                    <Link to='/scoreboard'><i className='huge black trophy icon'/></Link>
-                </a>    
             </div>
         </div>
     );

@@ -1,13 +1,18 @@
-.cards {
-    background-color: white;
-    width: 220px !important;
-    height: 336px !important;
-
+img {
+    max-width: 176px !important;
+    max-height: 269px !important;
+    
 }
 
 .parent {
     white-space: nowrap;
-    overflow: visible;
+}
+
+.placeholder {
+    max-width: 176px !important;
+    max-height: 269px !important;
+    width: 75px !important;
+    height: 269px !important;
 }
 
 .single-card {
@@ -16,5 +21,18 @@
 
 .third {
     transform: rotate(90deg);
+    margin-right: 3.0em;
+    margin-left: 3.0em;
+}
 
+.vertical-horizontal-parent {
+    position: relative;
+    overflow: visible;
+}
+
+.vertical-horizontal-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

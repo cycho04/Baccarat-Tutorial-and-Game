@@ -63,47 +63,25 @@ class Rules extends React.Component {
                         After last calls, each side is dealt 2 cards each in alternating fashion like so: 
                     </p>
                     <div className='parent'>
-                        <div className='rules-card'>
-                            {this.state.fourth ? 
-                                
-                                <div>
-                                    <img src='./images/4S.jpg' alt="Banker's 2nd card"/>
-                                    <div>4th</div> 
-                                </div>:
-                                <div>Loader</div>
-                                
-                            }
+                        <div className='rules-card'>  
+                            <img src={this.state.fourth ? './images/4S.jpg' : './images/Red.jpg'} alt="Banker's 2nd card"/>
+                        </div>
+                        <div className='rules-card'> 
+                            <img src={this.state.second ? './images/2C.jpg' : './images/Red.jpg'} alt="Banker's 1st card"/>
+                        </div>
+                        <div className='rules-card vertical-horizontal-parent placeholder'>
+                            <h1 className='vertical-horizontal-child'>VS</h1>
                         </div>
                         <div className='rules-card'>
-                            {this.state.second ?  
-                                <div> 
-                                    <img src='./images/2C.jpg' alt="Banker's 1st card"/>
-                                    <div>2nd</div>
-                                </div>:
-                                <div>Loader</div>
-                            } 
+                            <img src={this.state.third ? './images/3D.jpg' : './images/Blue.jpg' }alt="Player's 2nd card"/>
                         </div>
                         <div className='rules-card'>
-                            {this.state.third ? 
-                                
-                                <div>
-                                    <img src='./images/3D.jpg' alt="Player's 2nd card"/>
-                                    <div>3rd</div> 
-                                </div>:
-                                <div>Loader</div>
-                            }
-                        </div>
-                        <div className='rules-card'>
-                            {this.state.first ? 
-                                
-                                <div>
-                                    <img src='./images/AH.jpg' alt="Player's 1st card"/>
-                                    <div>1st</div>
-                                </div>:
-                                <div>Loader</div>
-                            }
+                            <img src={this.state.first ? './images/AH.jpg' : './images/Blue.jpg'} alt="Player's 1st card"/>
                         </div>  
-                        <button onClick={this.renderCard}>Deal Cards</button>  
+                        <div>
+                            <button className='ui green button' onClick={this.renderCard}>Deal Cards</button>      
+                        </div>
+                        
                         <p>Now after the initial deal, each side can receive a third card (We'll go over this step-by-step very soon). For now let's practice finding the values</p>
                     </div>
                     
@@ -121,62 +99,84 @@ class Rules extends React.Component {
                         The value of a hand is determined by ADDING the values of its individual cards.    
                     </p>
                     <div className='parent'>
-                        <div className='rules-card'>
-                            <div>Value of 1</div>
-                            <img src='./images/AS.jpg' alt="ace of spades"/>    
+                        <div className='rules-card'>                           
+                            <img src='./images/AS.jpg' alt="ace of spades"/> 
+                            <div>One</div>   
                         </div>
-                        <div className='rules-card'>+</div>
-                        <div className='rules-card'>
-                            <div>Value of 6</div>
-                            <img src='./images/6D.jpg' alt="six of diamonds"/>    
+                        <div className='rules-card vertical-horizontal-parent placeholder'>
+                            <h1 className='vertical-horizontal-child'>+</h1>
                         </div>
-                        <div className='rules-card'> = 7</div>
+                        <div className='rules-card'>                           
+                            <img src='./images/6D.jpg' alt="six of diamonds"/>
+                            <div>Six</div>    
+                        </div>
+                        <div className='rules-card vertical-horizontal-parent placeholder'>
+                            <h1 className='vertical-horizontal-child'>= 7</h1>
+                        </div>
+                    </div>
+                    <div className='parent'>
+                        <div className='rules-card'>                           
+                            <img src='./images/7C.jpg' alt="seven of clubs"/>
+                            <div>Seven</div>   
+                        </div>
+                        <div className='rules-card vertical-horizontal-parent placeholder'>
+                            <h1 className='vertical-horizontal-child'>+</h1>
+                        </div>
+                        <div className='rules-card'>                            
+                            <img src='./images/7C.jpg' alt="seven of clubs"/>
+                            <div>Seven</div>   
+                        </div>
+                        <div className='rules-card vertical-horizontal-parent placeholder-overflow'>
+                            <h1 className='vertical-horizontal-child'>= 14, so just 4</h1>
+                        </div>
                     </div>
                     <div className='parent'>
                         <div className='rules-card'>
-                            <div>Value of 7</div>
-                            <img src='./images/7C.jpg' alt="seven of clubs"/>   
+                            <img src='./images/3H.jpg' alt="three of hearts"/>
+                            <div>Three</div>    
                         </div>
-                        <div className='rules-card'>+</div>
+                        <div className='rules-card vertical-horizontal-parent placeholder'>
+                            <h1 className='vertical-horizontal-child'>+</h1>
+                        </div>
                         <div className='rules-card'>
-                            <div>Value of 7</div>
-                            <img src='./images/7C.jpg' alt="seven of clubs"/>   
+                            <img src='./images/9C.jpg' alt="nine of clubs"/>
+                            <div>Nine</div>    
                         </div>
-                        <div className='rules-card'>= 14, so just 4</div>
+                        <div className='rules-card vertical-horizontal-parent placeholder'>
+                            <h1 className='vertical-horizontal-child'>+</h1>
+                        </div>
+                        <div className='rules-card'>
+                            <img src='./images/6C.jpg' alt="six of clubs"/>
+                            <div>Six</div>    
+                        </div>
+                        <div className='rules-card vertical-horizontal-parent placeholder-overflow'>
+                            <h1 className='vertical-horizontal-child'> = 18, so just 8</h1>
+                        </div>
                     </div>
                     <div className='parent'>
                         <div className='rules-card'>
-                            <div>value of 3</div>
-                            <img src='./images/3H.jpg' alt="three of hearts"/>    
+                            <img src='./images/KS.jpg' alt="king of spades"/>
+                            <div>Zero</div>    
                         </div>
-                        <div className='rules-card'>+</div>
+                        <div className='rules-card vertical-horizontal-parent placeholder'>
+                            <h1 className='vertical-horizontal-child'>+</h1>
+                        </div>
                         <div className='rules-card'>
-                            <div>value of 9</div>
-                            <img src='./images/9C.jpg' alt="nine of clubs"/>    
+                            <img src='./images/3C.jpg' alt="three of clubs"/>
+                            <div>Three</div>    
                         </div>
-                        <div className='rules-card'>+</div>
+                        <div className='rules-card vertical-horizontal-parent placeholder'>
+                        <div className='rules-card vertical-horizontal-parent placeholder'>
+                            <h1 className='vertical-horizontal-child'>+</h1>
+                        </div>
+                        </div>
                         <div className='rules-card'>
-                            <div>value of 6</div>
-                            <img src='./images/6C.jpg' alt="six of clubs"/>    
+                            <img src='./images/3C.jpg' alt="three of clubs"/>
+                            <div>Three</div>    
                         </div>
-                        <div className='rules-card'> = 18, so just 8</div>
-                    </div>
-                    <div className='parent'>
-                        <div className='rules-card'>
-                            <div>value of 0</div>
-                            <img src='./images/KS.jpg' alt="king of spades"/>    
+                        <div className='rules-card vertical-horizontal-parent placeholder'>
+                            <h1 className='vertical-horizontal-child'> = 6 </h1>
                         </div>
-                        <div className='rules-card'>+</div>
-                        <div className='rules-card'>
-                            <div>value of 3</div>
-                            <img src='./images/3C.jpg' alt="three of clubs"/>    
-                        </div>
-                        <div className='rules-card'>+</div>
-                        <div className='rules-card'>
-                            <div>value of 3</div>
-                            <img src='./images/3C.jpg' alt="three of clubs"/>    
-                        </div>
-                        <div className='rules-card'> = 3</div>
                     </div>
                     
                     
@@ -190,13 +190,17 @@ class Rules extends React.Component {
                         The hand with the higher value wins; if the hands have the same value, the result is a tie.
                     </p>
                     
-                    <h3> player equal 4, banker equals 6. Banker Wins!</h3>
+                    
                     <div className='parent'>
+                        <h3> Banker equal 6, Player equals 4. Banker Wins!</h3>
                         <div className='rules-card'>
                             <img src='./images/4S.jpg' alt="Banker's 2nd card"/>
                         </div>
                         <div className='rules-card'>
                             <img src='./images/2C.jpg' alt="Banker's 1st card"/>
+                        </div>
+                        <div className='rules-card vertical-horizontal-parent placeholder'>
+                            <h1 className='vertical-horizontal-child'>VS</h1>
                         </div>
                         <div className='rules-card'>
                             <img src='./images/3D.jpg' alt="Player's 2nd card"/>
@@ -206,13 +210,17 @@ class Rules extends React.Component {
                         </div>                 
                     </div>
 
-                    <h3> player equal 7, banker equals 9. Player Wins!</h3>
+                    
                     <div className='parent'>
+                        <h3> Banker equals 7, Player equals 9. Player Wins!</h3>
                         <div className='rules-card'>
                             <img src='./images/5D.jpg' alt="five of diamonds"/>
                         </div>
                         <div className='rules-card'>
                             <img src='./images/2D.jpg' alt="two of diamonds"/>
+                        </div>
+                        <div className='rules-card vertical-horizontal-parent placeholder'>
+                            <h1 className='vertical-horizontal-child'>VS</h1>
                         </div>
                         <div className='rules-card'>
                             <img src='./images/9C.jpg' alt="nine of clubs"/>
@@ -222,13 +230,17 @@ class Rules extends React.Component {
                         </div>    
                     </div>
 
-                    <h3> player equal 0, banker equals 0. Its a TIE!</h3>
+                    
                     <div className='parent'>
+                        <h3> Banker equals 0, Player equals 0. Its a TIE!</h3>
                         <div className='rules-card'>
                             <img src='./images/9H.jpg' alt="nine of hearts"/>
                         </div>
                         <div className='rules-card'>
                             <img src='./images/AH.jpg' alt="Ace of hearts"/>
+                        </div>
+                        <div className='rules-card vertical-horizontal-parent placeholder'>
+                            <h1 className='vertical-horizontal-child'>VS</h1>
                         </div>
                         <div className='rules-card'>
                             <img src='./images/JS.jpg' alt="jack of spades"/>
@@ -236,6 +248,10 @@ class Rules extends React.Component {
                         <div className='rules-card'>
                             <img src='./images/QD.jpg' alt="queen of diamonds"/>
                         </div>    
+                    </div>
+
+                    <div>
+                        <p>Now that we've covered the basics, let's talk about when we deal each side an extra card</p>
                     </div>
                     
                 </div>

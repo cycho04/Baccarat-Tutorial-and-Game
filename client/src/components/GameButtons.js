@@ -2,7 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import deck from '../modules/deck';
 import { connect } from 'react-redux';
+
 import { addDeck, getCurrentHand, storeDeckId, updateBanker, updatePlayer } from '../actions';
+import './styles/Game.css';
 
 class GameButtons extends React.Component {
 
@@ -174,7 +176,7 @@ class GameButtons extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className='game-center'>
                 <button className='ui blue button' onClick={this.newShoe}>New Shoe</button>
                 <button disabled className='ui red button' onClick={this.handleClear}>Clear Cards</button> 
                 <button className='ui green button' onClick={this.dealNextHand}>Deal Next Hand</button>
