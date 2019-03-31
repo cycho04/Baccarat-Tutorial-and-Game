@@ -15,8 +15,5 @@ module.exports = (app) => {
     app.put('/board/:boardId', board.update);
 
     //DESTROY
-    app.delete('/board/:boardId', board.delete)
-
-    //CATCH ALL
-    app.get('*', board.all)
+    app.delete('/board/:boardId', board.delete);
 }
