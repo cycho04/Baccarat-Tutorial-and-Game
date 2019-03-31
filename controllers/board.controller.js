@@ -65,3 +65,8 @@ exports.delete = (req, res) => {
         console.log('Entry deleted', req.params.boardId)
     })
 };
+
+//CATCH ALL
+exports.all = (res, req) => {
+    res.sendFile(path.join(_dirname+'/client/build/index.html'));
+};

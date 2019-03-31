@@ -16,4 +16,7 @@ module.exports = (app) => {
 
     //DESTROY
     app.delete('/board/:boardId', board.delete)
+
+    //CATCH ALL
+    app.get('*', board.all)
 }
