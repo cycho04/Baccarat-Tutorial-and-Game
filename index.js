@@ -5,16 +5,16 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const keys = require('./config/keys'); //secured keys, .gitignore
-
+const PORT = process.env.PORT || 5000;
 
 //middlewares
 app.use(bodyParser.json());
 app.use(cors());
 
 //serve static files from react
-app.use(express.static(path.join(_dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-const PORT = process.env.PORT || 5000;
+
 
 
 //ROUTES (uses CONTROLLERS AND MODELS)
