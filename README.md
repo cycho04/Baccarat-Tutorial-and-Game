@@ -1,5 +1,5 @@
 ## Learn to play Baccarat!
-- Live Demo: [Baccarat Tutorial](https://dashboard.heroku.com/apps/young-garden-64652)
+- Live Demo: [Baccarat Tutorial](https://young-garden-64652.herokuapp.com/)
 
 ### User Interface
 
