@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { addDeck, getCurrentHand, storeDeckId } from '../actions';
 import Cards from './Cards';
 import GameButtons from './GameButtons';
+import Score from './Score';
 
 
 class Game extends React.Component {
@@ -23,9 +24,11 @@ class Game extends React.Component {
                 this.props.getCurrentHand([...unfinishedDeck[0].banker, ...unfinishedDeck[0].player]);
             })
     }
+
     render(){
         return (
-            <div className='ui container'>
+            <div className='ui container game-center'>
+                <Score />
                 <Cards banker={this.props.state.banker} player={this.props.state.player}/>
                 <GameButtons />
             </div>

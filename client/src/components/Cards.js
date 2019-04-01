@@ -70,8 +70,6 @@ const Cards = props => {
 
     return(
         <div className='parent'>
-            <h1>Banker/Player Wins!</h1>
-            <h1>7/7</h1>
             {arrangeCards() }
         </div>
            
