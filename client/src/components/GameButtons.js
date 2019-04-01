@@ -66,7 +66,7 @@ class GameButtons extends React.Component {
             })
 
         //UPDATES database
-        axios.put(`/${this.props.state.deckId}`, {
+        axios.put(`/board/${this.props.state.deckId}`, {
             banker: [hand[0],hand[1]],
             player: [hand[2],hand[3]],
             history: [],
@@ -130,7 +130,7 @@ class GameButtons extends React.Component {
             this.props.addDeck(usedDeck); 
             this.props.updatePlayer(playerHitCard);
             this.props.updateBanker(bankerHitCard);
-            axios.put(`/${this.props.state.deckId}`, {
+            axios.put(`/board/${this.props.state.deckId}`, {
                 banker: this.props.state.banker, 
                 player: this.props.state.player,
                 history: [],
@@ -163,7 +163,7 @@ class GameButtons extends React.Component {
 
     //new bet. currently labeled clear hands
     handleClear = () => {
-        axios.put(`http://localhost:5000/board/${this.props.state.deckId}`, {
+        axios.put(`/board/${this.props.state.deckId}`, {
             banker: [],
             player: [],
             history: [],
