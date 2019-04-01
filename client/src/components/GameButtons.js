@@ -25,11 +25,11 @@ class GameButtons extends React.Component {
         // Checks for old deck and deletes it if it exists.
         if(this.props.state.deckId){
             //DESTROY the old deck (prevent overloading the db)
-            axios.delete(`http://localhost:5000/board/${this.props.state.deckId}`);    
+            axios.delete(`/board/${this.props.state.deckId}`);    
         }
 
         //CREATE new full deck
-        axios.post('http://localhost:5000/board',{
+        axios.post('/board',{
             banker: [],
             player: [],
             history: [],
@@ -66,7 +66,7 @@ class GameButtons extends React.Component {
             })
 
         //UPDATES database
-        axios.put(`http://localhost:5000/board/${this.props.state.deckId}`, {
+        axios.put(`/${this.props.state.deckId}`, {
             banker: [hand[0],hand[1]],
             player: [hand[2],hand[3]],
             history: [],
@@ -130,7 +130,7 @@ class GameButtons extends React.Component {
             this.props.addDeck(usedDeck); 
             this.props.updatePlayer(playerHitCard);
             this.props.updateBanker(bankerHitCard);
-            axios.put(`http://localhost:5000/board/${this.props.state.deckId}`, {
+            axios.put(`/${this.props.state.deckId}`, {
                 banker: this.props.state.banker, 
                 player: this.props.state.player,
                 history: [],
@@ -148,7 +148,7 @@ class GameButtons extends React.Component {
             this.props.addDeck(usedDeck); 
             this.props.updateBanker(bankerHitCard);
             //updates database. need to find more effective way. only needs to update banker, but currently cant find solution.
-            axios.put(`http://localhost:5000/board/${this.props.state.deckId}`, {
+            axios.put(`/board/${this.props.state.deckId}`, {
                 banker: this.props.state.banker, 
                 player: this.props.state.player,
                 history: [],

@@ -14,7 +14,7 @@ class Game extends React.Component {
         document.body.style.backgroundImage = 'radial-gradient(#52c234, #061700)';
         //initially fetches all board data and filters the previously played one.
         //READ
-        axios.get(`http://localhost:5000/board`)
+        axios.get(`/board`)
             .then((res) => {
                 const unfinishedDeck = res.data.filter((game) => game.current === true)
                 //dispatch

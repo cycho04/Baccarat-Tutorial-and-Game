@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
-const keys = require('./config/keys'); //secured keys, .gitignore
+const keys = require('./config/keys'); //secured keys
 const PORT = process.env.PORT || 5000;
 
 //middlewares
