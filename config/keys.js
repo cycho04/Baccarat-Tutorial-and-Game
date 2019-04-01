@@ -1,3 +1,3 @@
 module.exports = {
-    mongoURI: 'mongodb://cycho04:Homme13579@ds161335.mlab.com:61335/game-tutorial'
+    mongoURI: 'mongodb://ccho:homme13579@ds117311.mlab.com:17311/heroku_rxr9l2r5'
 }
