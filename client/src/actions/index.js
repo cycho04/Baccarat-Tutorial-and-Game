@@ -31,10 +31,22 @@ export const updateBanker = (card) => {
         payload: card
     }
 }
+export const getBanker = (card) => {
+    return{
+        type: 'BANKER',
+        payload: card
+    }
+}
 
 export const updatePlayer = (card) => {
     return{
         type: 'UPDATE_PLAYER',
+        payload: card
+    }
+}
+export const getPlayer = (card) => {
+    return{
+        type: 'PLAYER',
         payload: card
     }
 }

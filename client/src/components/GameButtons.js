@@ -3,7 +3,7 @@ import axios from 'axios';
 import deck from '../modules/deck';
 import { connect } from 'react-redux';
 
-import { addDeck, getCurrentHand, storeDeckId, updateBanker, updatePlayer } from '../actions';
+import { addDeck, getCurrentHand, storeDeckId, updateBanker, updatePlayer, getBanker, getPlayer } from '../actions';
 import './styles/Game.css';
 
 class GameButtons extends React.Component {
@@ -40,7 +40,8 @@ class GameButtons extends React.Component {
                 //stores in redux
                 this.props.storeDeckId(res.data._id);
                 this.props.addDeck(res.data.deck); 
-                this.props.getCurrentHand([]);
+                this.props.getPlayer([]);
+                this.props.getBanker([]);
             })
     }
 
@@ -60,8 +61,8 @@ class GameButtons extends React.Component {
         this.props.addDeck(usedDeck); 
         this.props.getCurrentHand(hand)
             .then(() => {
-                const bankerTotal = this.baccaratCount(this.props.state.currentHand[0].value, this.props.state.currentHand[1].value);
-                const playerTotal = this.baccaratCount(this.props.state.currentHand[2].value, this.props.state.currentHand[3].value);
+                const bankerTotal = this.baccaratCount(this.props.state.banker[0].value, this.props.state.banker[1].value);
+                const playerTotal = this.baccaratCount(this.props.state.player[0].value, this.props.state.player[1].value);
                 this.hitOrStay(bankerTotal, playerTotal);
             })
 
@@ -161,24 +162,11 @@ class GameButtons extends React.Component {
         }
     }
 
-    //new bet. currently labeled clear hands
-    handleClear = () => {
-        axios.put(`/board/${this.props.state.deckId}`, {
-            banker: [],
-            player: [],
-            history: [],
-            deck:this.props.state.deck,
-            money: 1000
-        });
-        //dispatch
-        this.props.getCurrentHand([]);
-    }
 
     render(){
         return(
             <div className='game-center'>
                 <button className='ui blue button' onClick={this.newShoe}>New Shoe</button>
-                <button disabled className='ui red button' onClick={this.handleClear}>Clear Cards</button> 
                 <button className='ui green button' onClick={this.dealNextHand}>Deal Next Hand</button>
             </div>
         )    
@@ -191,4 +179,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps, { addDeck, getCurrentHand, storeDeckId, updateBanker, updatePlayer })(GameButtons);
+export default connect(mapStateToProps, { addDeck, getCurrentHand, storeDeckId, updateBanker, updatePlayer, getBanker, getPlayer })(GameButtons);

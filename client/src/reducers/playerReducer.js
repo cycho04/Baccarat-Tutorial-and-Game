@@ -1,4 +1,4 @@
-export default (state=['sample'], action) => {
+export default (state=[{value: '0', src: './images/Gray.jpg'}, {value: '0', src: './images/Gray.jpg'}], action) => {
     switch(action.type){
         case 'PLAYER':
             return action.payload;
