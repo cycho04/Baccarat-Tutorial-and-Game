@@ -1,13 +1,13 @@
 import React from 'react';
 import './styles/Rules.css';
 
-const SecondRule = () => {
+const SecondRule = props => {
     return(
         <div className='hitchart-parent'>
-
-            <p>If the value is over 5, we don't give a card to the player side and move onto to step 3.</p>  
+            <p>1) CHECK THE PLAYER'S VALUE: If it's over 5, skip to step 3 without drawing a card.</p>  
+            <p>Player has a value of 7(which is higher than 5), so go to Step 3</p>
             <div>
-                <img src='./images/7C.jpg' alt='seven of clubs'/>
+                <img src='./images/5C.jpg' alt='FIVE of clubs'/>
                 <img src='./images/10H.jpg' alt='ten of hearts'/>
                 <div className='rules-card vertical-horizontal-parent placeholder'>
                     <h1 className='vertical-horizontal-child'>VS</h1>
@@ -16,7 +16,8 @@ const SecondRule = () => {
                 <img src='./images/8D.jpg' alt='eight of diamonds'/>
             </div>
 
-            <p>Since neither side equals an 8 or 9... We check the value of the player side. If the value is under 5, we give one more card to the player's side and move onto step 4.</p>
+            <p>2) ALTERNATIVELY: If the value is 5 or below, we give one more card to the player's side and move onto step 4.</p>
+            <p>Player initially has a value of 4, so it takes another card</p>
             <img src='./images/7C.jpg' alt='seven of clubs'/>
             <img src='./images/10H.jpg' alt='ten of hearts'/>
             <div className='rules-card vertical-horizontal-parent placeholder'>
@@ -32,10 +33,11 @@ const SecondRule = () => {
             <div className='hitchart-buttons'>
                 <h3>Does the player's side equal 6 or higher?</h3>
                 <div>
-                    <button  className='ui button'>Yes, Go to Step 3</button>
-                    <button  className='ui button'>No, Go to Step 4</button>    
+                    <button onClick={props.clickedStepThree} className='ui button'>Yes, Go to Step 3</button>
+                    <button onClick={props.clickedStepFour} className='ui button'>No, Player draws, then Step 4</button>    
                 </div> 
             </div>  
+            <p>Two roads diverged...</p>
         </div>
         
     )

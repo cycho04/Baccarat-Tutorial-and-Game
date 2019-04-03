@@ -192,7 +192,8 @@ class Rules extends React.Component {
                     
                     
                     <div className='parent'>
-                        <h3> Banker equal 6, Player equals 4. Banker Wins!</h3>
+                        <h3> Banker equal 6, Player equals 4.</h3>
+                        <h3>Banker Wins!</h3>
                         <div className='rules-card'>
                             <img src='./images/4S.jpg' alt="Banker's 2nd card"/>
                         </div>
@@ -212,7 +213,8 @@ class Rules extends React.Component {
 
                     
                     <div className='parent'>
-                        <h3> Banker equals 7, Player equals 9. Player Wins!</h3>
+                        <h3> Banker equals 7, Player equals 9. </h3>
+                        <h3>Player Wins!</h3>
                         <div className='rules-card'>
                             <img src='./images/5D.jpg' alt="five of diamonds"/>
                         </div>
@@ -232,7 +234,8 @@ class Rules extends React.Component {
 
                     
                     <div className='parent'>
-                        <h3> Banker equals 0, Player equals 0. Its a TIE!</h3>
+                        <h3> Banker equals 0, Player equals 0.</h3>
+                        <h3>Its a TIE!</h3>
                         <div className='rules-card'>
                             <img src='./images/9H.jpg' alt="nine of hearts"/>
                         </div>

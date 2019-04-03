@@ -15,12 +15,12 @@ class HitChart extends React.Component {
     ruleExplained = () => {
         if(this.state.rulenumber === 1){
             return(
-                <FirstRule />
+                <FirstRule clickedStepTwo={this.clickedStepTwo}/>
             )
         }
         else if(this.state.rulenumber === 2){
             return(
-                <SecondRule />
+                <SecondRule clickedStepThree={this.clickedStepThree} clickedStepFour={this.clickedStepFour}/>
             )
         }
         else if(this.state.rulenumber === 3){

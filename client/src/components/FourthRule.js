@@ -1,24 +1,138 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import './styles/FourthRule.css';
 
 const FourthRule = () => {
     return(
         <div>
-            <div>
-                Does the player's side equal 6 or higher?
-                <button  className='ui button'>Yes, Go to Step 3</button>
-                <button  className='ui button'>No, Go to Step 4</button>
+            <p>Check Banker Value AND the 3rd player card(The one we drew in Step 2)</p>
+            <p>If the Banker value is...</p>
+
+
+            <p>0, 1, or 2, banker always draws one card. Game Over.</p>
+            <p>3 vs 4. Player Wins</p>
+            <img className='smallerPic' src='./images/3S.jpg' alt='three of spades'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                <h1 className='vertical-horizontal-child'>+</h1>
             </div>
-            <p>
-                The most detailed rule. So far, there's no naturals, and both player and banker side equal to 5 or less. since player is under 5 it hit a card. Now......
-                The banker side will.......
-                (0-2) Always hit if it equals 2 or below, regardless of the player's hit card.
-                (3) will always hit a card, unless if the players hit card is an 8 (3-8 special)
-                (4) will hit if the players hit card is 2-7. and stays on the rest.
-                (5) will hit if the players hit card is 4-7 and stays on the rest.
-                (6) will ONLY hit if the player's hit card is a 6 or 7
-                (7) banker will never hit
-                (8+) its a natural, we should've stopped at step 1. 
-            </p>
+            <img className='smallerPic' src='./images/KD.jpg' alt='king of diamonds'/>
+            <img className='smallerPic' src='./images/QD.jpg' alt='queen of diamonds'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                    <h1 className='vertical-horizontal-child'>VS</h1>
+                </div>
+            <img className='smallerPic' src='./images/4H.jpg' alt='four of hearts'/>
+            <img className='smallerPic' src='./images/QD.jpg' alt='queen of diamonds'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                <h1 className='vertical-horizontal-child'>+</h1>
+            </div>
+            <img className='smallerPic' src='./images/QD.jpg' alt='queen of diamonds'/>
+
+
+            <p>3, banker draws a card, except when the player's 3rd card is an 8, in which case, no draw. </p>
+            <img className='smallerPic' src='./images/QS.jpg' alt='queen of spades'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                <h1 className='vertical-horizontal-child'>+</h1>
+            </div>
+            <img className='smallerPic' src='./images/8H.jpg' alt='eight of hearts'/>
+            <img className='smallerPic' src='./images/5D.jpg' alt='five of diamonds'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                    <h1 className='vertical-horizontal-child'>VS</h1>
+                </div>
+            <img className='smallerPic' src='./images/4H.jpg' alt='four of hearts'/>
+            <img className='smallerPic' src='./images/QD.jpg' alt='queen of diamonds'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                <h1 className='vertical-horizontal-child'>+</h1>
+            </div>
+            <img className='smallerPic' src='./images/QD.jpg' alt='queen of diamonds'/>
+
+            <p>Banker doesn't draw because its value is 3 and the player draw card is 8</p>
+            <img className='smallerPic' src='./images/8H.jpg' alt='eight of hearts'/>
+            <img className='smallerPic' src='./images/5D.jpg' alt='five of diamonds'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                    <h1 className='vertical-horizontal-child'>VS</h1>
+                </div>
+            <img className='smallerPic' src='./images/4H.jpg' alt='four of hearts'/>
+            <img className='smallerPic' src='./images/QD.jpg' alt='queen of diamonds'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                <h1 className='vertical-horizontal-child'>+</h1>
+            </div>
+            <img className='smallerPic' src='./images/8S.jpg' alt='eight of spades'/>
+
+
+            <p>4, banker draws a card if the player's 3rd card is 2 through 7, inclusively</p>
+            <img className='smallerPic' src='./images/3S.jpg' alt='three of spades'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                <h1 className='vertical-horizontal-child'>+</h1>
+            </div>
+            <img className='smallerPic' src='./images/KD.jpg' alt='king of diamonds'/>
+            <img className='smallerPic' src='./images/4S.jpg' alt='five of spades'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                    <h1 className='vertical-horizontal-child'>VS</h1>
+                </div>
+            <img className='smallerPic' src='./images/4H.jpg' alt='four of hearts'/>
+            <img className='smallerPic' src='./images/QD.jpg' alt='queen of diamonds'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                <h1 className='vertical-horizontal-child'>+</h1>
+            </div>
+            <img className='smallerPic' src='./images/6D.jpg' alt='six of diamonds'/>
+
+
+            <p>5, banker draws a card if the player's 3rd card is 4 through 7, inclusively</p>
+            <img className='smallerPic' src='./images/3S.jpg' alt='three of spades'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                <h1 className='vertical-horizontal-child'>+</h1>
+            </div>
+            <img className='smallerPic' src='./images/KD.jpg' alt='king of diamonds'/>
+            <img className='smallerPic' src='./images/5S.jpg' alt='five of spades'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                    <h1 className='vertical-horizontal-child'>VS</h1>
+                </div>
+            <img className='smallerPic' src='./images/4H.jpg' alt='four of hearts'/>
+            <img className='smallerPic' src='./images/QD.jpg' alt='queen of diamonds'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                <h1 className='vertical-horizontal-child'>+</h1>
+            </div>
+            <img className='smallerPic' src='./images/4D.jpg' alt='four of diamonds'/>
+
+
+            <p>6, banker draws a card if the player's 3rd card is 6 or 7.</p>
+            <img className='smallerPic' src='./images/3S.jpg' alt='three of spades'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                <h1 className='vertical-horizontal-child'>+</h1>
+            </div>
+            <img className='smallerPic' src='./images/KD.jpg' alt='king of diamonds'/>
+            <img className='smallerPic' src='./images/6S.jpg' alt='six of spades'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                    <h1 className='vertical-horizontal-child'>VS</h1>
+                </div>
+            <img className='smallerPic' src='./images/4H.jpg' alt='four of hearts'/>
+            <img className='smallerPic' src='./images/QD.jpg' alt='queen of diamonds'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                <h1 className='vertical-horizontal-child'>+</h1>
+            </div>
+            <img className='smallerPic' src='./images/7D.jpg' alt='seven of diamonds'/>
+
+
+            <p>7 or higher, no draw</p>
+            <img className='smallerPic' src='./images/KD.jpg' alt='king of diamonds'/>
+            <img className='smallerPic' src='./images/5S.jpg' alt='five of spades'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                    <h1 className='vertical-horizontal-child'>VS</h1>
+                </div>
+            <img className='smallerPic' src='./images/4H.jpg' alt='four of hearts'/>
+            <img className='smallerPic' src='./images/QD.jpg' alt='queen of diamonds'/>
+            <div className='rules-card vertical-horizontal-parent shorterplaceholder'>
+                <h1 className='vertical-horizontal-child'>+</h1>
+            </div>
+            <img className='smallerPic' src='./images/QD.jpg' alt='queen of diamonds'/>
+
+            <p>Game Over!!</p>
+            
+            <a className='item'>
+                <Link to='/game'><i className='huge black gamepad icon'/></Link>
+            </a>
+            <p>Play Now</p>
         </div>
     )
 }

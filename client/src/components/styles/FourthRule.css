@@ -1,0 +1,9 @@
+/*these two needed to fit images and placeholders now that there are 6 cards across*/
+.smallerPic {
+    width: 140px !important;
+    height: 215px !important;
+}
+.shorterplaceholder {
+    width: 75px !important;
+    height: 215px !important;
+}
