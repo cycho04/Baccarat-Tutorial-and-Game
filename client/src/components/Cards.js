@@ -8,7 +8,6 @@ import './styles/Cards.css'
 const Cards = props => {
 
     const arrangeCards = () => {
-        console.log(props.state.banker)
         //initializing. data hasn't been fetched yet.
         if(props.state.banker.length === 1){
             return(
@@ -53,7 +52,7 @@ const Cards = props => {
                     {props.state.banker.map((card, i) => {
                         return(
                             // ternary checks for new deck
-                            <img className='single-card' src={card ? card.src : './images/Gray.jpg'} alt={i}/>    
+                            <img className='single-card' src={card ? card.src : './images/AD.jpg'} alt={i}/>    
                         )
                     })}
                     <div className='single-card vertical-horizontal-parent placeholder'>

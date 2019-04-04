@@ -30,8 +30,8 @@ class GameButtons extends React.Component {
 
         //CREATE new full deck
         axios.post('/board',{
-            banker: [],
-            player: [],
+            banker: [{value: 0, src: './images/Gray.jpg'}, {value: 0, src: './images/Gray.jpg'}],
+            player: [{value: 0, src: './images/Gray.jpg'}, {value: 0, src: './images/Gray.jpg'}],
             history: [],
             deck: fullDeck,
             money: 1000
@@ -40,8 +40,8 @@ class GameButtons extends React.Component {
                 //stores in redux
                 this.props.storeDeckId(res.data._id);
                 this.props.addDeck(res.data.deck); 
-                this.props.getPlayer([]);
-                this.props.getBanker([]);
+                this.props.getBanker([{value: 0, src: './images/Gray.jpg'},{value: 0, src: './images/Gray.jpg'}]);
+                this.props.getPlayer([{value: 0, src: './images/Gray.jpg'},{value: 0, src: './images/Gray.jpg'}]);
             })
     }
 
