@@ -30,6 +30,7 @@ const Cards = props => {
                 </div>
             ) 
         }
+        
         //only if banker hit
         else if(props.state.banker.length === 3){
             return(
