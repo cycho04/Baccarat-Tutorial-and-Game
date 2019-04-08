@@ -12,6 +12,7 @@
 - Navigation bar allows users to move around all pages.
 
 ### Video Walkthrough
+![Bacc Gif](bacc.gif)
 
 ### Environment
 - `ReactJS` for front-end and `Redux` for state management.
