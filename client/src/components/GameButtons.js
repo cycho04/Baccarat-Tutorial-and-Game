@@ -9,7 +9,7 @@ import './styles/Game.css';
 class GameButtons extends React.Component {
 
     newOrNextHand = () => {
-        if(this.props.deckLength > 0 && this.props.deckLength < 390){
+        if(this.props.deckLength > 0 && this.props.deckLength < 60){
             this.newShoe();
         }
         else{
@@ -175,7 +175,7 @@ class GameButtons extends React.Component {
         return(
             <div className='game-center'>
                 <button className='ui blue button' onClick={this.newShoe}>New Shoe</button>
-                <button className='ui green button' onClick={this.newOrNextHand}>{this.props.deckLength < 390 ? 'Last Hand! New Game.' : 'Deal Next Hand'}</button>
+                <button className='ui green button' onClick={this.newOrNextHand}>{this.props.deckLength < 60 ? 'Last Hand! New Game.' : 'Deal Next Hand'}</button>
             </div>
         )    
     }

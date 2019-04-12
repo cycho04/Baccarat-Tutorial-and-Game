@@ -1,7 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import HitChart from './HitChart';
 import './styles/Rules.css';
+
+const Box = styled.div`
+    padding-top: 1.0em;
+    margin-bottom: 2.0em;
+    border-radius: 25px;
+    background-image: radial-gradient(circle, #D7DDE8, #FFFFFF);
+`
 
 class Rules extends React.Component {
 
@@ -98,7 +106,8 @@ class Rules extends React.Component {
                     <p>
                         The value of a hand is determined by ADDING the values of its individual cards.    
                     </p>
-                    <div className='parent'>
+
+                    <Box className='parent'>
                         <div className='rules-card'>                           
                             <img src='./images/AS.jpg' alt="ace of spades"/> 
                             <div>One</div>   
@@ -113,8 +122,9 @@ class Rules extends React.Component {
                         <div className='rules-card vertical-horizontal-parent placeholder'>
                             <h1 className='vertical-horizontal-child'>= 7</h1>
                         </div>
-                    </div>
-                    <div className='parent'>
+                    </Box>
+
+                    <Box className='parent'>
                         <div className='rules-card'>                           
                             <img src='./images/7C.jpg' alt="seven of clubs"/>
                             <div>Seven</div>   
@@ -129,8 +139,9 @@ class Rules extends React.Component {
                         <div className='rules-card vertical-horizontal-parent placeholder-overflow'>
                             <h1 className='vertical-horizontal-child'>= 14, so just 4</h1>
                         </div>
-                    </div>
-                    <div className='parent'>
+                    </Box>
+
+                    <Box className='parent'>
                         <div className='rules-card'>
                             <img src='./images/3H.jpg' alt="three of hearts"/>
                             <div>Three</div>    
@@ -152,8 +163,9 @@ class Rules extends React.Component {
                         <div className='rules-card vertical-horizontal-parent placeholder-overflow'>
                             <h1 className='vertical-horizontal-child'> = 18, so just 8</h1>
                         </div>
-                    </div>
-                    <div className='parent'>
+                    </Box>
+
+                    <Box className='parent'>
                         <div className='rules-card'>
                             <img src='./images/KS.jpg' alt="king of spades"/>
                             <div>Zero</div>    
@@ -177,7 +189,7 @@ class Rules extends React.Component {
                         <div className='rules-card vertical-horizontal-parent placeholder'>
                             <h1 className='vertical-horizontal-child'> = 6 </h1>
                         </div>
-                    </div>
+                    </Box>
                     
                     
                     
@@ -191,9 +203,9 @@ class Rules extends React.Component {
                     </p>
                     
                     
-                    <div className='parent'>
+                    <Box className='parent'>
                         <h3> Banker equal 6, Player equals 4.</h3>
-                        <h3>Banker Wins!</h3>
+                        
                         <div className='rules-card'>
                             <img src='./images/4S.jpg' alt="Banker's 2nd card"/>
                         </div>
@@ -208,13 +220,14 @@ class Rules extends React.Component {
                         </div>
                         <div className='rules-card'>
                             <img src='./images/AH.jpg' alt="Player's 1st card"/>
-                        </div>                 
-                    </div>
+                        </div>
+                        <h3>Banker Wins!</h3>                 
+                    </Box>
 
                     
-                    <div className='parent'>
+                    <Box className='parent'>
                         <h3> Banker equals 7, Player equals 9. </h3>
-                        <h3>Player Wins!</h3>
+                        
                         <div className='rules-card'>
                             <img src='./images/5D.jpg' alt="five of diamonds"/>
                         </div>
@@ -229,13 +242,14 @@ class Rules extends React.Component {
                         </div>
                         <div className='rules-card'>
                             <img src='./images/10S.jpg' alt="ten of spades"/>
-                        </div>    
-                    </div>
+                        </div>   
+                        <h3>Player Wins!</h3> 
+                    </Box>
 
                     
-                    <div className='parent'>
+                    <Box className='parent'>
                         <h3> Banker equals 0, Player equals 0.</h3>
-                        <h3>Its a TIE!</h3>
+                        
                         <div className='rules-card'>
                             <img src='./images/9H.jpg' alt="nine of hearts"/>
                         </div>
@@ -250,11 +264,12 @@ class Rules extends React.Component {
                         </div>
                         <div className='rules-card'>
                             <img src='./images/QD.jpg' alt="queen of diamonds"/>
-                        </div>    
-                    </div>
+                        </div>   
+                        <h3>Its a TIE!</h3> 
+                    </Box>
 
                     <div>
-                        <p>Now that we've covered the basics, let's talk about when we deal each side an extra card</p>
+                        <h3>Now that we've covered the basics, let's talk about when we deal each side an extra card...</h3>
                     </div>
                     
                 </div>
