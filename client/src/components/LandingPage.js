@@ -18,6 +18,9 @@ const InnerBox = styled.div`
   padding: 1.5em;
   color: white;
   border-radius: 25px;
+  @media screen and (max-width: 600px){
+    width: 50%;
+  }
 `;
 
 const Text = styled.div`
