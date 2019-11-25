@@ -16,7 +16,25 @@ const Box = styled.div`
 
 const RulesWrapper = styled.div`
   animation: 2s ${fadeInAnimation};
+  position: relative;
 `;
+
+const StyledCard = styled.img`
+  width: 100%;
+  border-radius: 10px;
+`
+
+const StyledCardWrapper = styled.div`
+  width: 20%;
+`
+
+const StyledCardsWrapper = styled.div`
+  overflow-wrap: break-word !important;
+`
+
+const StyledPlaceHolder = styled.div`
+  width: 10% !important;
+`
 
 class Rules extends React.Component {
   state = { first: false, second: false, third: false, fourth: false };
@@ -84,47 +102,47 @@ class Rules extends React.Component {
             hand. After last calls, each side is dealt 2 cards each in
             alternating fashion like so:
           </p>
-          <div className="parent">
-            <div className="rules-card">
-              <img
+          <StyledCardsWrapper className="parent">
+            <StyledCardWrapper className="rules-card">
+              <StyledCard
                 src={this.state.fourth ? "./images/4S.jpg" : "./images/Red.jpg"}
                 alt="Banker's 2nd card"
               />
-            </div>
-            <div className="rules-card">
-              <img
+            </StyledCardWrapper>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard
                 src={this.state.second ? "./images/2C.jpg" : "./images/Red.jpg"}
                 alt="Banker's 1st card"
               />
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder">
-              <h1 className="vertical-horizontal-child">VS</h1>
-            </div>
-            <div className="rules-card">
-              <img
+            </StyledCardWrapper>
+            
+            <StyledPlaceHolder className="rules-card" />
+            
+            <StyledCardWrapper className="rules-card">
+              <StyledCard
                 src={this.state.third ? "./images/3D.jpg" : "./images/Blue.jpg"}
                 alt="Player's 2nd card"
               />
-            </div>
-            <div className="rules-card">
-              <img
+            </StyledCardWrapper>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard
                 src={this.state.first ? "./images/AH.jpg" : "./images/Blue.jpg"}
                 alt="Player's 1st card"
               />
-            </div>
+            </StyledCardWrapper>
             <div>
               <button className="ui green button" onClick={this.renderCard}>
                 Deal Cards
               </button>
             </div>
+          </StyledCardsWrapper>
 
-            <p>
-              Now after the initial deal, each side can receive a third card
-              (We'll go over this step-by-step very soon). For now let's
-              practice finding the values
-            </p>
-          </div>
-
+          <p>
+            Now after the initial deal, each side can receive a third card.
+            We'll go over this step-by-step very soon. For now let's
+            practice finding the values
+          </p>
+           
           <h2 className="ui header">Values and Counting in Baccarat</h2>
           <p>
             Tens and face cards are counted as zero, while all other cards are
@@ -138,87 +156,85 @@ class Rules extends React.Component {
           </p>
 
           <Box className="parent">
-            <div className="rules-card">
-              <img src="./images/AS.jpg" alt="ace of spades" />
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/AS.jpg" alt="ace of spades" />
               <div>One</div>
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder">
-              <h1 className="vertical-horizontal-child">+</h1>
-            </div>
-            <div className="rules-card">
-              <img src="./images/6D.jpg" alt="six of diamonds" />
+            </StyledCardWrapper>
+            <StyledPlaceHolder className="rules-card">
+              <h3>+</h3>
+            </StyledPlaceHolder>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/6D.jpg" alt="six of diamonds" />
               <div>Six</div>
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder">
-              <h1 className="vertical-horizontal-child">= 7</h1>
-            </div>
+            </StyledCardWrapper>
+            <StyledPlaceHolder className="rules-card">
+              <h3>= 7</h3>
+            </StyledPlaceHolder>
           </Box>
 
           <Box className="parent">
-            <div className="rules-card">
-              <img src="./images/7C.jpg" alt="seven of clubs" />
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/7C.jpg" alt="seven of clubs" />
               <div>Seven</div>
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder">
-              <h1 className="vertical-horizontal-child">+</h1>
-            </div>
-            <div className="rules-card">
-              <img src="./images/7C.jpg" alt="seven of clubs" />
+            </StyledCardWrapper>
+            <StyledPlaceHolder className="rules-card">
+              <h3>+</h3>
+            </StyledPlaceHolder>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/7C.jpg" alt="seven of clubs" />
               <div>Seven</div>
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder-overflow">
-              <h1 className="vertical-horizontal-child">= 14, so just 4</h1>
-            </div>
+            </StyledCardWrapper>
+            <StyledPlaceHolder className="rules-card">
+              <h3>= 4</h3>
+            </StyledPlaceHolder>
           </Box>
 
           <Box className="parent">
-            <div className="rules-card">
-              <img src="./images/3H.jpg" alt="three of hearts" />
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/3H.jpg" alt="three of hearts" />
               <div>Three</div>
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder">
-              <h1 className="vertical-horizontal-child">+</h1>
-            </div>
-            <div className="rules-card">
-              <img src="./images/9C.jpg" alt="nine of clubs" />
+            </StyledCardWrapper>
+            <StyledPlaceHolder className="rules-card">
+              <h3>+</h3>
+            </StyledPlaceHolder>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/9C.jpg" alt="nine of clubs" />
               <div>Nine</div>
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder">
-              <h1 className="vertical-horizontal-child">+</h1>
-            </div>
-            <div className="rules-card">
-              <img src="./images/6C.jpg" alt="six of clubs" />
+            </StyledCardWrapper>
+            <StyledPlaceHolder className="rules-card">
+              <h3>+</h3>
+            </StyledPlaceHolder>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/6C.jpg" alt="six of clubs" />
               <div>Six</div>
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder-overflow">
-              <h1 className="vertical-horizontal-child"> = 18, so just 8</h1>
-            </div>
+            </StyledCardWrapper>
+            <StyledPlaceHolder className="rules-card">
+              <h3>= 8</h3>
+            </StyledPlaceHolder>
           </Box>
 
           <Box className="parent">
-            <div className="rules-card">
-              <img src="./images/KS.jpg" alt="king of spades" />
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/KS.jpg" alt="king of spades" />
               <div>Zero</div>
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder">
-              <h1 className="vertical-horizontal-child">+</h1>
-            </div>
-            <div className="rules-card">
-              <img src="./images/3C.jpg" alt="three of clubs" />
+            </StyledCardWrapper>
+            <StyledPlaceHolder className="rules-card">
+              <h3>+</h3>
+            </StyledPlaceHolder>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/3C.jpg" alt="three of clubs" />
               <div>Three</div>
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder">
-              <div className="rules-card vertical-horizontal-parent placeholder">
-                <h1 className="vertical-horizontal-child">+</h1>
-              </div>
-            </div>
-            <div className="rules-card">
-              <img src="./images/3C.jpg" alt="three of clubs" />
+            </StyledCardWrapper>
+            <StyledPlaceHolder className="rules-card">
+              <h3>+</h3>
+            </StyledPlaceHolder>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/3C.jpg" alt="three of clubs" />
               <div>Three</div>
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder">
-              <h1 className="vertical-horizontal-child"> = 6 </h1>
-            </div>
+            </StyledCardWrapper>
+            <StyledPlaceHolder className="rules-card">
+              <h3>= 6</h3>
+            </StyledPlaceHolder>
           </Box>
 
           <h2 className="ui header">How to win</h2>
@@ -230,63 +246,61 @@ class Rules extends React.Component {
           <Box className="parent">
             <h3> Banker equal 6, Player equals 4.</h3>
 
-            <div className="rules-card">
-              <img src="./images/4S.jpg" alt="Banker's 2nd card" />
-            </div>
-            <div className="rules-card">
-              <img src="./images/2C.jpg" alt="Banker's 1st card" />
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder">
-              <h1 className="vertical-horizontal-child">VS</h1>
-            </div>
-            <div className="rules-card">
-              <img src="./images/3D.jpg" alt="Player's 2nd card" />
-            </div>
-            <div className="rules-card">
-              <img src="./images/AH.jpg" alt="Player's 1st card" />
-            </div>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/4S.jpg" alt="Banker's 2nd card" />
+            </StyledCardWrapper>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/2C.jpg" alt="Banker's 1st card" />
+            </StyledCardWrapper>
+            <StyledPlaceHolder className="rules-card" />
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/3D.jpg" alt="Player's 2nd card" />
+            </StyledCardWrapper>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/AH.jpg" alt="Player's 1st card" />
+            </StyledCardWrapper>
             <h3>Banker Wins!</h3>
           </Box>
 
           <Box className="parent">
             <h3> Banker equals 7, Player equals 9. </h3>
 
-            <div className="rules-card">
-              <img src="./images/5D.jpg" alt="five of diamonds" />
-            </div>
-            <div className="rules-card">
-              <img src="./images/2D.jpg" alt="two of diamonds" />
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder">
-              <h1 className="vertical-horizontal-child">VS</h1>
-            </div>
-            <div className="rules-card">
-              <img src="./images/9C.jpg" alt="nine of clubs" />
-            </div>
-            <div className="rules-card">
-              <img src="./images/10S.jpg" alt="ten of spades" />
-            </div>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/5D.jpg" alt="five of diamonds" />
+            </StyledCardWrapper>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/2D.jpg" alt="two of diamonds" />
+            </StyledCardWrapper>
+
+            <StyledPlaceHolder className="rules-card" />
+
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/9C.jpg" alt="nine of clubs" />
+            </StyledCardWrapper>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/10S.jpg" alt="ten of spades" />
+            </StyledCardWrapper>
             <h3>Player Wins!</h3>
           </Box>
 
           <Box className="parent">
             <h3> Banker equals 0, Player equals 0.</h3>
 
-            <div className="rules-card">
-              <img src="./images/9H.jpg" alt="nine of hearts" />
-            </div>
-            <div className="rules-card">
-              <img src="./images/AH.jpg" alt="Ace of hearts" />
-            </div>
-            <div className="rules-card vertical-horizontal-parent placeholder">
-              <h1 className="vertical-horizontal-child">VS</h1>
-            </div>
-            <div className="rules-card">
-              <img src="./images/JS.jpg" alt="jack of spades" />
-            </div>
-            <div className="rules-card">
-              <img src="./images/QD.jpg" alt="queen of diamonds" />
-            </div>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/9H.jpg" alt="nine of hearts" />
+            </StyledCardWrapper>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/AH.jpg" alt="Ace of hearts" />
+            </StyledCardWrapper>
+
+            <StyledPlaceHolder className="rules-card" />
+            
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/JS.jpg" alt="jack of spades" />
+            </StyledCardWrapper>
+            <StyledCardWrapper className="rules-card">
+              <StyledCard src="./images/QD.jpg" alt="queen of diamonds" />
+            </StyledCardWrapper>
             <h3>Its a TIE!</h3>
           </Box>
 

@@ -7,27 +7,41 @@ const fadeInAnimation = keyframes`${fadeIn}`;
 
 const HeaderWrapper = styled.div`
   animation: 4s ${fadeInAnimation};
+  background-color: #414345 !important;
+  margin-bottom: 0 !important;
 `;
+
+const StyledAnchor = styled.a`
+  @media screen and (max-width: 600px){
+    font-size: 0.8rem;
+  }
+  i {
+    background: -webkit-linear-gradient(right, #ECE9E6, #FFFFFF,#ECE9E6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: auto 1.5rem !important;
+  }
+`
 
 const Header = () => {
   return (
     <HeaderWrapper className="ui secondary menu">
-      <a className="item">
+      <StyledAnchor className="item">
         <Link to="/">
-          <i className="huge black paper plane outline icon" />
+          <i className="big black paper plane outline icon" />
         </Link>
-      </a>
+      </StyledAnchor>
       <div className="right menu">
-        <a className="item">
+        <StyledAnchor className="item">
           <Link to="/rules">
-            <i className="huge black question circle outline icon" />
+            <i className="big black question circle outline icon" />
           </Link>
-        </a>
-        <a className="item">
+        </StyledAnchor>
+        <StyledAnchor className="item">
           <Link to="/game">
-            <i className="huge black gamepad icon" />
+            <i className="big black gamepad icon" />
           </Link>
-        </a>
+        </StyledAnchor>
       </div>
     </HeaderWrapper>
   );

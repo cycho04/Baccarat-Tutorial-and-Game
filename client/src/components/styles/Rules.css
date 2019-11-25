@@ -14,8 +14,6 @@
 .placeholder {
     max-width: 176px !important;
     max-height: 269px !important;
-    width: 75px !important;
-    height: 269px !important;
 }
 
 .placeholder-overflow {
@@ -25,10 +23,6 @@
     height: 269px;
 }
 
-.vertical-horizontal-parent {
-    position: relative;
-    overflow: visible;
-}
 
 .vertical-horizontal-child {
     position: absolute;

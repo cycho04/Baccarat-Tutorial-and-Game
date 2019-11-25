@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import FirstRule from './FirstRule';
 import SecondRule from './SecondRule';
@@ -6,6 +7,14 @@ import ThirdRule from './ThirdRule';
 import FourthRule from './FourthRule';
 
 import './styles/Rules.css';
+
+const StyledSteps = styled.div`
+    width: 25% !important;
+`
+
+const StyledStepsWrapper = styled.div`
+    width: 100%;
+`
 
 
 class HitChart extends React.Component {
@@ -59,40 +68,40 @@ class HitChart extends React.Component {
     render(){
         return(
             <div className='parent'>
-                {/* Steps */}
-                <div className='ui ordered steps'>      
-                    <div onClick={this.clickedStepOne} className='step'>
-                        <div className='content'>
-                            <div className='title'>Check For Naturals</div>
-                            <div className='description'>Is either side an 8 or 9?</div>
-                        </div>
-                    </div>
+                <div className='ui segment'>
+                    <StyledStepsWrapper className='ui ordered steps'>      
+                        <StyledSteps onClick={this.clickedStepOne} className='step'>
+                            <div className='content'>
+                                <div className='title'>Check For Naturals</div>
+                                <div className='description'>Is either side an 8 or 9?</div>
+                            </div>
+                        </StyledSteps>
+                        
+                        <StyledSteps onClick={this.clickedStepTwo} className='step'>
+                            <div className='content'>
+                                <div className='title'>Check Player's side</div>
+                                <div className='description'>Is it under or over 5 points?</div>
+                            </div>
+                        </StyledSteps>
                     
-                    <div onClick={this.clickedStepTwo} className='step'>
-                        <div className='content'>
-                            <div className='title'>Check Player's side</div>
-                            <div className='description'>Is it under or over 5 points?</div>
-                        </div>
-                    </div>
-                
-                    <div onClick={this.clickedStepThree} className='step'>
-                        <div className='content'>
-                            <div className='title'>Check Banker's side</div>
-                            <div className='description'>Is the value under or over 5?</div>
-                        </div>
-                    </div>
+                        <StyledSteps onClick={this.clickedStepThree} className='step'>
+                            <div className='content'>
+                                <div className='title'>Check Banker's side</div>
+                                <div className='description'>Is the value under or over 5?</div>
+                            </div>
+                        </StyledSteps>
 
-                    <div onClick={this.clickedStepFour} className='step'>
-                        <div className='content'>
-                            <div className='title'>Check Banker's side/Player's hit card</div>
-                            <div className='description'>Is the value under or over 5?</div>
-                        </div>
-                    </div>
+                        <StyledSteps onClick={this.clickedStepFour} className='step'>
+                            <div className='content'>
+                                <div className='title'>Check Banker's side/Player's hit card</div>
+                                <div className='description'>Is the value under or over 5?</div>
+                            </div>
+                        </StyledSteps>
+                    </StyledStepsWrapper>
                 </div>
                 <div className='ui piled segment'>
                     {this.ruleExplained()}
                 </div>
-
             </div>
         )
     }
