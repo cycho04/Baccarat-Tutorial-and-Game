@@ -20,7 +20,7 @@ const fadeInAnimation = keyframes`${fadeIn}`;
 const GameWrapper = styled.div`
   text-align: center;
   animation: 2s ${fadeInAnimation};
-  height: 75vh;
+  height: 80vh;
 `;
 
 class Game extends React.Component {
