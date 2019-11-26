@@ -1,8 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
-import './styles/Cards.css'
+import './styles/Cards.css';
 
+const StyledCard = styled.img`
+  width: 100%;
+  border-radius: 10px;
+`
+
+const StyledCardWrapper = styled.div`
+  width: 15%;
+  display: inline-block;
+`
+
+const StyledPlaceHolder = styled.div`
+  width: 10% !important;
+`
 
 
 const Cards = props => {
@@ -18,15 +32,16 @@ const Cards = props => {
         else if(props.state.banker.length === 3 && props.state.player.length === 3){
             return(
                 <div className='cards parent'>
-                    <img className='single-card third' src={props.state.banker[2].src} alt=''/> 
-                    <img className='single-card' src={props.state.banker[0].src} alt=''/>     
-                    <img className='single-card' src={props.state.banker[1].src} alt=''/>     
-                    <div className='single-card vertical-horizontal-parent placeholder'>
-                        <h1 className='vertical-horizontal-child'>VS</h1>
-                    </div>
-                    <img className='single-card' src={props.state.player[0].src} alt=''/>    
-                    <img className='single-card' src={props.state.player[1].src} alt=''/>  
-                    <img className='single-card third' src={props.state.player[2].src} alt=''/>    
+                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.banker[2].src} alt=''/></StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.banker[0].src} alt=''/></StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.banker[1].src} alt=''/> </StyledCardWrapper>
+                    
+                    <StyledPlaceHolder className='single-card vertical-horizontal-parent'>
+                        <h3 className='vertical-horizontal-child'>VS</h3>
+                    </StyledPlaceHolder>
+                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.player[0].src} alt=''/> </StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.player[1].src} alt=''/>  </StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.player[2].src} alt=''/></StyledCardWrapper>        
                 </div>
             ) 
         }
@@ -35,14 +50,17 @@ const Cards = props => {
         else if(props.state.banker.length === 3){
             return(
                 <div className='cards parent'>
-                    <img className='single-card third' src={props.state.banker[2].src} alt=''/>
-                    <img className='single-card' src={props.state.banker[0].src} alt=''/>     
-                    <img className='single-card' src={props.state.banker[1].src} alt=''/>     
-                    <div className='single-card vertical-horizontal-parent placeholder'>
-                        <h1 className='vertical-horizontal-child'>VS</h1>
-                    </div>  
-                    <img className='single-card' src={props.state.player[0].src} alt=''/>    
-                    <img className='single-card' src={props.state.player[1].src} alt=''/>    
+                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.banker[2].src} alt=''/></StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.banker[0].src} alt=''/></StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.banker[1].src} alt=''/> </StyledCardWrapper>
+                         
+                        
+                    <StyledPlaceHolder className='single-card vertical-horizontal-parent'>
+                        <h3 className='vertical-horizontal-child'>VS</h3>
+                    </StyledPlaceHolder>  
+                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.player[0].src} alt=''/> </StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.player[1].src} alt=''/> </StyledCardWrapper>
+                       
                 </div>
             ) 
         }
@@ -53,15 +71,15 @@ const Cards = props => {
                     {props.state.banker.map((card, i) => {
                         return(
                             // ternary checks for new deck
-                            <img className='single-card' src={card ? card.src : './images/AD.jpg'} alt={i}/>    
+                            <StyledCardWrapper><StyledCard className='single-card' src={card ? card.src : './images/AD.jpg'} alt={i}/></StyledCardWrapper>    
                         )
                     })}
-                    <div className='single-card vertical-horizontal-parent placeholder'>
-                        <h1 className='vertical-horizontal-child'>VS</h1>
-                    </div>
+                    <StyledPlaceHolder className='single-card vertical-horizontal-parent'>
+                        <h3 className='vertical-horizontal-child'>VS</h3>
+                    </StyledPlaceHolder>
                     {props.state.player.map((card, i) => {
                         return(
-                            <img className={props.state.player.length === 3 ? 'single-card third' : 'single-card'} src={card ? card.src : './images/Gray.jpg'} alt={i}/>    
+                            <StyledCardWrapper><StyledCard className={props.state.player.length === 3 ? 'single-card' : 'single-card'} src={card ? card.src : './images/Gray.jpg'} alt={i}/></StyledCardWrapper>  
                         )       
                     })}
                 </div>

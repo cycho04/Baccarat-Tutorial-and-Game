@@ -16,6 +16,10 @@ const StyledStepsWrapper = styled.div`
     width: 100%;
 `
 
+const StyledText = styled.div`
+    white-space: normal;
+`
+
 
 class HitChart extends React.Component {
 
@@ -93,8 +97,8 @@ class HitChart extends React.Component {
 
                         <StyledSteps onClick={this.clickedStepFour} className='step'>
                             <div className='content'>
-                                <div className='title'>Check Banker's side/Player's hit card</div>
-                                <div className='description'>Is the value under or over 5?</div>
+                                <StyledText className='title'>Check Banker's side/Player's hit card</StyledText>
+                                <StyledText className='description'>Is the value under or over 5?</StyledText>
                             </div>
                         </StyledSteps>
                     </StyledStepsWrapper>

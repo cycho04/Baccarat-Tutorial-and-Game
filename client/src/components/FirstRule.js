@@ -23,7 +23,8 @@ const StyledPlaceHolder = styled.div`
   width: 10% !important;
 `
 const StyledText = styled.div`
-    width: 10%;
+    width: auto !important;
+    white-space: normal;
 `
 
 const onYesClick = () => {
@@ -33,9 +34,10 @@ const onYesClick = () => {
 const FirstRule = props => {
     return(
         <>
-            <StyledText>
-                If the first two cards of either side equal to 8 or 9, we call this a Natural and the game is over. Whichever side holds the higher 
-                value wins (or ties).
+            <StyledText className='container'>
+                If the first two cards of either side equal to 8 or 9, 
+                we call this a Natural and the game is over. Whichever side holds the higher 
+                value wins or ties.
             </StyledText> 
             <Box>  
                 <StyledCardWrapper>
@@ -75,8 +77,8 @@ const FirstRule = props => {
                 <h3>Natural 8 tie</h3>
             </Box>
             
-            <p>Any of the above scenarios is considered Game Over.</p>
-            <p>If there is no "Natural", proceed to step 2</p>
+            <StyledText>Any of the above scenarios is considered Game Over.</StyledText>
+            <StyledText>If there is no "Natural", proceed to step 2</StyledText>
     
             <div className='hitchart-buttons'>
                 <h3>Does either side EQUAL 8 or 9?</h3>

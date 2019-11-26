@@ -28,10 +28,6 @@ const StyledCardWrapper = styled.div`
   width: 20%;
 `
 
-const StyledCardsWrapper = styled.div`
-  overflow-wrap: break-word !important;
-`
-
 const StyledPlaceHolder = styled.div`
   width: 10% !important;
 `
@@ -102,7 +98,7 @@ class Rules extends React.Component {
             hand. After last calls, each side is dealt 2 cards each in
             alternating fashion like so:
           </p>
-          <StyledCardsWrapper className="parent">
+          <div className="parent">
             <StyledCardWrapper className="rules-card">
               <StyledCard
                 src={this.state.fourth ? "./images/4S.jpg" : "./images/Red.jpg"}
@@ -135,7 +131,7 @@ class Rules extends React.Component {
                 Deal Cards
               </button>
             </div>
-          </StyledCardsWrapper>
+          </div>
 
           <p>
             Now after the initial deal, each side can receive a third card.
