@@ -10,10 +10,10 @@ import {
   storeDeckId,
   getBanker,
   getPlayer
-} from "../actions";
-import Cards from "./Cards";
-import GameButtons from "./GameButtons";
-import Score from "./Score";
+} from "../../actions";
+import Cards from "../Cards/Cards";
+import GameButtons from "../GameButtons/GameButtons";
+import Score from "../Score/Score";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
 
-import './styles/Rules.css';
+import '../GameRules.css';
 
 const Box = styled.div`
     padding-top: 1.0em;

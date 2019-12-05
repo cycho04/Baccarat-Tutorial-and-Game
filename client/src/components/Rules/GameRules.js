@@ -2,8 +2,8 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
 
-import HitChart from "./HitChart";
-import "./styles/Rules.css";
+import HitChart from "../HitChart/HitChart";
+import "./GameRules.css";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 
@@ -32,7 +32,7 @@ const StyledPlaceHolder = styled.div`
   width: 10% !important;
 `
 
-class Rules extends React.Component {
+class GameRules extends React.Component {
   state = { first: false, second: false, third: false, fourth: false };
 
   componentDidMount() {
@@ -315,4 +315,4 @@ class Rules extends React.Component {
   }
 }
 
-export default Rules;
+export default GameRules;

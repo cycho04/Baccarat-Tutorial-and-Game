@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import deck from "../modules/deck";
+import deck from "../../modules/deck";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
@@ -12,7 +12,7 @@ import {
   updatePlayer,
   getBanker,
   getPlayer
-} from "../actions";
+} from "../../actions";
 
 const GameWrapper = styled.div`
   text-align: center;

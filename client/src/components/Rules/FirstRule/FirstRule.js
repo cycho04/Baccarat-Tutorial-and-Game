@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/Rules.css';
+import '../GameRules.css';
 import styled from 'styled-components';
 
 

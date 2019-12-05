@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import './App.css';
 
-import Header from "./Header";
-import Main from "./Main";
-import Footer from "./Footer";
+import Header from "../Header/Header";
+import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
 
 const Wrapper = styled.div`
   font-family: "Exo 2", sans-serif !important;

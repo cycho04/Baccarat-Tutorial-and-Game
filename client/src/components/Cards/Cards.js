@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import './styles/Cards.css';
+import './Cards.css';
 
 const StyledCard = styled.img`
   width: 100%;
