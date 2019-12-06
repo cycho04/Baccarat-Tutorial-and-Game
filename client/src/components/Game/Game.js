@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import styled, { keyframes } from "styled-components";
-import { fadeIn } from "react-animations";
+import styled, { keyframes, createGlobalStyle } from "styled-components";
+import { fadeIn, fadeOut } from "react-animations";
 
 import {
   addDeck,
@@ -16,17 +16,28 @@ import GameButtons from "../GameButtons/GameButtons";
 import Score from "../Score/Score";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
+const fadeOutAnimation = keyframes`${fadeOut}`;
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-image: radial-gradient(#53a318, #348700);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    animation: 1s ${fadeOutAnimation};
+  }
+`
 
 const GameWrapper = styled.div`
   text-align: center;
-  animation: 2s ${fadeInAnimation};
+  animation: 1s ${fadeInAnimation};
   height: 80vh;
 `;
 
 class Game extends React.Component {
   //fetches previous game/board when Game loads.
   componentDidMount() {
-    document.body.style.backgroundImage = "radial-gradient(#52c234, #061700)";
     //initially fetches all board data and filters the previously played one.
     //READ
     axios.get(`/board`).then(res => {
@@ -43,13 +54,20 @@ class Game extends React.Component {
     });
   }
 
+  componentWillUnmount(){
+    
+  }
+
   render() {
     return (
-      <GameWrapper className="ui container">
+      <>
+        <GlobalStyle />
+        <GameWrapper className="ui container">
         <Score />
         <Cards />
         <GameButtons />
       </GameWrapper>
+      </>
     );
   }
 }

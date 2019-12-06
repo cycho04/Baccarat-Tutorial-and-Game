@@ -7,7 +7,7 @@ const fadeInAnimation = keyframes`${fadeIn}`;
 
 const HeaderWrapper = styled.div`
   animation: 4s ${fadeInAnimation};
-  background-color: #414345 !important;
+  background: transparent;
   margin-bottom: 0 !important;
 `;
 

@@ -1,29 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled, { keyframes } from "styled-components";
-import { fadeIn } from "react-animations";
+import styled, { keyframes,createGlobalStyle } from "styled-components";
+import { fadeIn, fadeOut } from "react-animations";
+import cards from '../../images/cards.png';
 
 const fadeInAnimation = keyframes`${fadeIn}`;
+const fadeOutAnimation = keyframes`${fadeOut}`;
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-image: linear-gradient(#53a318, #348700);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    animation: 1s ${fadeOutAnimation};
+  }
+`
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
-  animation: 2s ${fadeInAnimation};
-  background-image: url("https://images.unsplash.com/photo-1511193311914-0346f16efe90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80");
+  animation: 1s ${fadeInAnimation};
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 `;
 
 const InnerBox = styled.div`
-  background-image: radial-gradient(circle, #232526, #414345, #232526);
+  background: transparent;
   padding: 1.5em;
   color: white;
   border-radius: 10px;
   width: 40%;
-  box-shadow: 5px 10px 4px black;
   @media screen and (max-width: 600px){
     width: 75%;
   }
@@ -31,13 +42,12 @@ const InnerBox = styled.div`
 
 const Text = styled.div`
   text-align: center;
-  background: -webkit-linear-gradient(right, red, yellow);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: white;
+  padding-bottom: 3rem;
 `;
 
 const StyledButton = styled.button`
-  width: 48%;
+  width: 20%;
   box-sizing: border-box;
   margin: 0.1rem !important;
   height: 100% !important;
@@ -47,25 +57,35 @@ const StyledButtonWrapper = styled.div`
   text-align: center;
 `
 
-const LandingPage = () => {
-  return (
-    <Wrapper>
-      <InnerBox>
-        <Text>
-          <h1>EZ BACCARAT</h1>
-        </Text>
+const StyledImg = styled.img`
+  width: auto !important;
+`
 
-        <StyledButtonWrapper>
-          <Link to="/rules">
-            <StyledButton className="huge ui button">Learn</StyledButton>
-          </Link>
-          <Link to="/game">
-            <StyledButton className="huge ui button">Play</StyledButton>
-          </Link>
-        </StyledButtonWrapper>
-      </InnerBox>
-    </Wrapper>
-  );
+class LandingPage extends React.Component {
+ 
+  render(){
+    return(
+      <>
+        <GlobalStyle />
+        <Wrapper>
+          <StyledImg src={cards}/>
+          <InnerBox>
+            <Text>
+              <h1>EZ BACCARAT</h1>
+            </Text>
+            <StyledButtonWrapper>
+              <Link to="/rules">
+                <StyledButton className="huge ui button">Learn</StyledButton>
+              </Link>
+              <Link to="/game">
+                <StyledButton className="huge ui button">Play</StyledButton>
+              </Link>
+            </StyledButtonWrapper>
+          </InnerBox>
+        </Wrapper>
+      </>
+    )
+  }
 };
 
 export default LandingPage;

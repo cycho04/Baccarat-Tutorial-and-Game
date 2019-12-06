@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   text-align: center;
   padding-bottom: 2em;
-  background-color: #414345 !important;
+  background: transparent;
   padding-top: 1rem;
 `;
 

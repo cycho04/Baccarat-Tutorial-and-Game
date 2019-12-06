@@ -1,11 +1,23 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
-import { fadeIn } from "react-animations";
+import styled, { keyframes, createGlobalStyle } from "styled-components";
+import { fadeIn, fadeOut } from "react-animations";
 
 import HitChart from "../HitChart/HitChart";
 import "./GameRules.css";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
+const fadeOutAnimation = keyframes`${fadeOut}`;
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-image: url('https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    animation: 1s ${fadeOutAnimation};
+  }
+`
 
 const Box = styled.div`
   padding-top: 1em;
@@ -15,7 +27,7 @@ const Box = styled.div`
 `;
 
 const RulesWrapper = styled.div`
-  animation: 2s ${fadeInAnimation};
+  animation: 1s ${fadeInAnimation};
   position: relative;
 `;
 
@@ -35,13 +47,7 @@ const StyledPlaceHolder = styled.div`
 class GameRules extends React.Component {
   state = { first: false, second: false, third: false, fourth: false };
 
-  componentDidMount() {
-    document.body.style.backgroundImage =
-      'url("https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80")';
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundPosition = "center";
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundAttachment = "fixed";
+  componentWillUnmount() {
   }
 
   renderCard = () => {
@@ -69,6 +75,8 @@ class GameRules extends React.Component {
 
   render() {
     return (
+      <>
+        <GlobalStyle />
       <RulesWrapper className="ui container">
         <h1>
           How to Play <i className="ui lightbulb outline icon" />
@@ -311,6 +319,8 @@ class GameRules extends React.Component {
 
         <HitChart />
       </RulesWrapper>
+
+      </>
     );
   }
 }
