@@ -1,4 +1,4 @@
-//8, standard 52card deck = 416
+//8, standard 52card deck = 416 total
 module.exports = [
     //Diamonds            //Hearts            //Spades            //Clubs
     {value: 1, src: '../images/AD.jpg'},{value: 1, src: './images/AH.jpg'},{value: 1, src: './images/AS.jpg'},{value: 1, src: './images/AC.jpg'},

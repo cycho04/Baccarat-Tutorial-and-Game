@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled, { keyframes,createGlobalStyle } from "styled-components";
-import { fadeIn, fadeOut } from "react-animations";
+import styled, { keyframes,createGlobalStyle, } from "styled-components";
+import { fadeIn } from "react-animations";
 import cards from '../../images/cards.png';
 
 const fadeInAnimation = keyframes`${fadeIn}`;
-const fadeOutAnimation = keyframes`${fadeOut}`;
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -14,7 +13,6 @@ const GlobalStyle = createGlobalStyle`
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    animation: 1s ${fadeOutAnimation};
   }
 `
 
@@ -58,34 +56,31 @@ const StyledButtonWrapper = styled.div`
 `
 
 const StyledImg = styled.img`
-  width: auto !important;
+  min-width: 350px;
 `
 
-class LandingPage extends React.Component {
- 
-  render(){
-    return(
-      <>
-        <GlobalStyle />
-        <Wrapper>
-          <StyledImg src={cards}/>
-          <InnerBox>
-            <Text>
-              <h1>EZ BACCARAT</h1>
-            </Text>
-            <StyledButtonWrapper>
-              <Link to="/rules">
-                <StyledButton className="huge ui button">Learn</StyledButton>
-              </Link>
-              <Link to="/game">
-                <StyledButton className="huge ui button">Play</StyledButton>
-              </Link>
-            </StyledButtonWrapper>
-          </InnerBox>
-        </Wrapper>
-      </>
-    )
-  }
+const LandingPage = () => {
+  return(
+    <>
+      <GlobalStyle />
+      <Wrapper>
+        <StyledImg src={cards}/>
+        <InnerBox>
+          <Text>
+            <h1>EZ BACCARAT</h1>
+          </Text>
+          <StyledButtonWrapper>
+            <Link to="/rules">
+              <StyledButton className="huge ui button">Learn</StyledButton>
+            </Link>
+            <Link to="/game">
+              <StyledButton className="huge ui button">Play</StyledButton>
+            </Link>
+          </StyledButtonWrapper>
+        </InnerBox>
+      </Wrapper>
+    </>
+  )
 };
 
 export default LandingPage;

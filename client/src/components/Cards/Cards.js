@@ -1,105 +1,111 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 
-import './Cards.css';
-
-const StyledCard = styled.img`
-  width: 100%;
-  border-radius: 10px;
-`
-
-const StyledCardWrapper = styled.div`
-  width: 15%;
-  display: inline-block;
-`
-
-const StyledPlaceHolder = styled.div`
-  width: 10% !important;
-`
+import {
+    StyledCard, 
+    StyledCardWrapper, 
+    StyledPlaceHolder, 
+    StyledWrapper, 
+    StyledText
+} from './Cards.style';
 
 
 const Cards = props => {
+    const {bankerLength, playerLength, banker, player} = props;
 
     const arrangeCards = () => {
         //initializing. data hasn't been fetched yet.
-        if(props.state.banker.length === 1){
+        if(bankerLength === 1){
             return(
                 <div>Loading Data</div>
             )
         }
         //if both sides hit
-        else if(props.state.banker.length === 3 && props.state.player.length === 3){
+        else if(bankerLength === 3 && playerLength === 3){
             return(
-                <div className='cards parent'>
-                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.banker[2].src} alt=''/></StyledCardWrapper>
-                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.banker[0].src} alt=''/></StyledCardWrapper>
-                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.banker[1].src} alt=''/> </StyledCardWrapper>
+                <StyledWrapper>
+                    <StyledCardWrapper><StyledCard src={banker[2].src} alt=''/></StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard src={banker[0].src} alt=''/></StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard src={banker[1].src} alt=''/> </StyledCardWrapper>
                     
-                    <StyledPlaceHolder className='single-card vertical-horizontal-parent'>
-                        <h3 className='vertical-horizontal-child'>VS</h3>
+                    <StyledPlaceHolder>
+                        <StyledText>VS</StyledText>
                     </StyledPlaceHolder>
-                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.player[0].src} alt=''/> </StyledCardWrapper>
-                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.player[1].src} alt=''/>  </StyledCardWrapper>
-                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.player[2].src} alt=''/></StyledCardWrapper>        
-                </div>
+
+                    <StyledCardWrapper><StyledCard src={player[0].src} alt=''/> </StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard src={player[1].src} alt=''/>  </StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard src={player[2].src} alt=''/></StyledCardWrapper>        
+                </StyledWrapper>
             ) 
         }
         
         //only if banker hit
-        else if(props.state.banker.length === 3){
+        else if(banker.length === 3){
             return(
-                <div className='cards parent'>
-                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.banker[2].src} alt=''/></StyledCardWrapper>
-                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.banker[0].src} alt=''/></StyledCardWrapper>
-                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.banker[1].src} alt=''/> </StyledCardWrapper>
-                         
-                        
-                    <StyledPlaceHolder className='single-card vertical-horizontal-parent'>
-                        <h3 className='vertical-horizontal-child'>VS</h3>
-                    </StyledPlaceHolder>  
-                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.player[0].src} alt=''/> </StyledCardWrapper>
-                    <StyledCardWrapper><StyledCard className='single-card' src={props.state.player[1].src} alt=''/> </StyledCardWrapper>
+                <StyledWrapper>
+                    <StyledCardWrapper><StyledCard src={banker[2].src} alt=''/></StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard src={banker[0].src} alt=''/></StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard src={banker[1].src} alt=''/> </StyledCardWrapper>
+                                 
+                    <StyledPlaceHolder>
+                        <StyledText>VS</StyledText>
+                    </StyledPlaceHolder>
+
+                    <StyledCardWrapper><StyledCard src={player[0].src} alt=''/> </StyledCardWrapper>
+                    <StyledCardWrapper><StyledCard src={player[1].src} alt=''/> </StyledCardWrapper>
                        
-                </div>
+                </StyledWrapper>
             ) 
         }
+
         //just 2 cards each side
         else {
             return(
-                <div className='cards'>
-                    {props.state.banker.map((card, i) => {
+                <StyledWrapper>
+                    {banker.map((card, i) => {
                         return(
                             // ternary checks for new deck
-                            <StyledCardWrapper><StyledCard className='single-card' src={card ? card.src : './images/AD.jpg'} alt={i}/></StyledCardWrapper>    
+                            <StyledCardWrapper><StyledCard src={card ? card.src : './images/AD.jpg'} alt={i}/></StyledCardWrapper>    
                         )
                     })}
-                    <StyledPlaceHolder className='single-card vertical-horizontal-parent'>
-                        <h3 className='vertical-horizontal-child'>VS</h3>
+                    <StyledPlaceHolder>
+                        <StyledText>VS</StyledText>
                     </StyledPlaceHolder>
-                    {props.state.player.map((card, i) => {
+                    {player.map((card, i) => {
                         return(
-                            <StyledCardWrapper><StyledCard className={props.state.player.length === 3 ? 'single-card' : 'single-card'} src={card ? card.src : './images/Gray.jpg'} alt={i}/></StyledCardWrapper>  
+                            <StyledCardWrapper><StyledCard src={card ? card.src : './images/Gray.jpg'} alt={i}/></StyledCardWrapper>  
                         )       
                     })}
-                </div>
+                </StyledWrapper>
             )    
         }
     }
 
-
     return(
-        <div className='parent'>
-            {arrangeCards() }
-        </div>
+        <>
+            {arrangeCards()}
+        </>
            
     )
 }
 
 const mapStateToProps = state => {
     return{
-        state: state
+        bankerLength: state.banker.length,
+        playerLength: state.player.length,
+        banker: state.banker,
+        player: state.player,
+
     }
+}
+
+Cards.propTypes = {
+    bankerLength: PropTypes.number,
+    playerLength: PropTypes.number,
+    banker: PropTypes.array,
+    player: PropTypes.array,
+
 }
 
 export default connect(mapStateToProps)(Cards);

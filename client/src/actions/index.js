@@ -9,7 +9,6 @@ import {
 } from './types';
 
 
-
 //current deck status
 export const addDeck = (arr) => {
     return {
@@ -20,7 +19,7 @@ export const addDeck = (arr) => {
 
 export const getCurrentHand = (arr) => dispatch => {
     //action returns a promise, access the state after update using .then()
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         dispatch({
             type: CURRENT_HAND,
             payload: arr    

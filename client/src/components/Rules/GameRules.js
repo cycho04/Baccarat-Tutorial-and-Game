@@ -1,12 +1,11 @@
 import React from "react";
 import styled, { keyframes, createGlobalStyle } from "styled-components";
-import { fadeIn, fadeOut } from "react-animations";
+import { fadeIn } from "react-animations";
 
 import HitChart from "../HitChart/HitChart";
 import "./GameRules.css";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
-const fadeOutAnimation = keyframes`${fadeOut}`;
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -15,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    animation: 1s ${fadeOutAnimation};
   }
 `
 
@@ -46,9 +44,6 @@ const StyledPlaceHolder = styled.div`
 
 class GameRules extends React.Component {
   state = { first: false, second: false, third: false, fourth: false };
-
-  componentWillUnmount() {
-  }
 
   renderCard = () => {
     setTimeout(() => {
