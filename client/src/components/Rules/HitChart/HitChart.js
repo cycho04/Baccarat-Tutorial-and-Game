@@ -6,7 +6,7 @@ import SecondRule from '../SecondRule/SecondRule';
 import ThirdRule from '../ThirdRule/ThirdRule';
 import FourthRule from '../FourthRule/FourthRule';
 
-import '../Rules/GameRules.css';
+import '../GameRules.css';
 
 const StyledSteps = styled.div`
     width: 25% !important;
@@ -71,6 +71,8 @@ class HitChart extends React.Component {
 
     render(){
         return(
+            <>
+                <h3 className="ui horizontal divider header">Step by step</h3>
             <div className='parent'>
                 <div className='ui segment'>
                     <StyledStepsWrapper className='ui ordered steps'>      
@@ -107,6 +109,7 @@ class HitChart extends React.Component {
                     {this.ruleExplained()}
                 </div>
             </div>
+            </>
         )
     }
 }

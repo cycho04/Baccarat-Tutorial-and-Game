@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 
-
-
 const Score = props => {
+
+    const { banker, player } = props;
 
     const baccaratNumbers = (value) => {
         if(value >= 20){
@@ -29,10 +30,10 @@ const Score = props => {
         }
     }
 
-    const bankerValues = props.state.banker[0] !== undefined ? props.state.banker.map((card) => card.value || 0) : 0
-    const bankerTotal = props.state.banker[0] !== undefined ? baccaratNumbers(bankerValues.reduce((total, current) => total + current)) : 0
-    const playerValues = props.state.player[0] !== undefined ? props.state.player.map((card) => card.value || 0) : 0
-    const playerTotal = props.state.player[0] !== undefined ?  baccaratNumbers(playerValues.reduce((total, current) => total + current)) : 0
+    const bankerValues = banker[0] !== undefined ? banker.map((card) => card.value || 0) : 0
+    const bankerTotal = banker[0] !== undefined ? baccaratNumbers(bankerValues.reduce((total, current) => total + current)) : 0
+    const playerValues = player[0] !== undefined ? player.map((card) => card.value || 0) : 0
+    const playerTotal = player[0] !== undefined ?  baccaratNumbers(playerValues.reduce((total, current) => total + current)) : 0
     
     return(
         <div>
@@ -44,8 +45,14 @@ const Score = props => {
 
 const mapStateToProps = state => {
     return{
-        state: state
+        banker: state.banker,
+        player: state.player
     }
+}
+
+Score.propTypes = {
+    banker: PropTypes.array,
+    player: PropTypes.array
 }
 
 export default connect(mapStateToProps)(Score);

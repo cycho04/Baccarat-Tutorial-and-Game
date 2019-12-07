@@ -19,7 +19,7 @@ const LandingPage = () => {
               <StyledButton variant='contained'>Learn</StyledButton>
             </Link>
             <Link to="/game">
-              <StyledButton>Play</StyledButton>
+              <StyledButton variant='contained'>Play</StyledButton>
             </Link>
           </StyledButtonWrapper>
         </InnerBox>
