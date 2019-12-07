@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import FirstRule from '../Rules/FirstRule/FirstRule';
-import SecondRule from '../Rules/SecondRule/SecondRule';
-import ThirdRule from '../Rules/ThirdRule/ThirdRule';
-import FourthRule from '../Rules/FourthRule/FourthRule';
+import FirstRule from '../FirstRule/FirstRule';
+import SecondRule from '../SecondRule/SecondRule';
+import ThirdRule from '../ThirdRule/ThirdRule';
+import FourthRule from '../FourthRule/FourthRule';
 
 import '../Rules/GameRules.css';
 

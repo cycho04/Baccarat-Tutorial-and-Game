@@ -18,4 +18,5 @@ export const GameWrapper = styled(Container)`
   text-align: center;
   animation: 1s ${fadeInAnimation};
   height: 80vh;
+  padding-top: 15vh;
 `

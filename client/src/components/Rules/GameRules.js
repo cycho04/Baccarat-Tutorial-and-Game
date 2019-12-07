@@ -27,6 +27,7 @@ const Box = styled.div`
 const RulesWrapper = styled.div`
   animation: 1s ${fadeInAnimation};
   position: relative;
+  padding-top: 15vh;
 `;
 
 const StyledCard = styled.img`
