@@ -5,7 +5,8 @@ import { Box, StyledCard, StyledCardWrapper, StyledPlaceHolder } from '../GameRu
 const HowToWin = () => {
     return(
         <>
-            <h2 className="ui header">How to win</h2>
+          <h4 className="ui horizontal divider header">How To Win</h4>
+          <div className='ui piled segment'>
           <p>
             The hand with the higher value wins; if the hands have the same
             value, the result is a tie.
@@ -77,6 +78,7 @@ const HowToWin = () => {
               Now that we've covered the basics, let's talk about when we deal
               each side an extra card...
             </h3>
+          </div>
           </div>
         </>
     )

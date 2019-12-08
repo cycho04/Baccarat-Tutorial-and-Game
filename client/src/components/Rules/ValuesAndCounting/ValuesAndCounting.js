@@ -5,7 +5,8 @@ import {Box, StyledCard, StyledCardWrapper, StyledPlaceHolder} from '../GameRule
 const ValuesAndCounting = () => {
     return(
         <>
-             <h2 className="ui header">Values and Counting in Baccarat</h2>
+          <h4 className="ui horizontal divider header">Values and Counting</h4>
+          <div className='ui piled segment'> 
           <p>
             Tens and face cards are counted as zero, while all other cards are
             counted by the number of "pips" on the card face. Only the last
@@ -98,6 +99,7 @@ const ValuesAndCounting = () => {
               <h3>= 6</h3>
             </StyledPlaceHolder>
           </Box>
+          </div>
         </>
     )
 }

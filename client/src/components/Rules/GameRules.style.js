@@ -34,6 +34,7 @@ export const StyledCard = styled.img`
 
 export const StyledCardWrapper = styled.div`
   width: 20%;
+  max-width: 180px;
 `
 
 export const StyledPlaceHolder = styled.div`
